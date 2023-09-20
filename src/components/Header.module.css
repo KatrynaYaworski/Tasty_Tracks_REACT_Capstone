@@ -1,0 +1,32 @@
+body{
+    background-image: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.freepik.com%2Ffree-photos-vectors%2Fcow-background&psig=AOvVaw2g0eUV6lBiJkaDjF0e2_ns&ust=1695156635253000&source=images&cd=vfe&opi=89978449&ved=0CA8QjRxqFwoTCJDI0NqEtYEDFQAAAAAdAAAAABAI";
+}
+header{
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2vh 16vw;
+}
+
+.logo_container{
+    display: flex;
+    color: #3A8686;/*this is the dark color*/
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    font-size: 25px;
+}
+
+.nav_btn{
+    background-color: transparent;
+    border: none;
+    color: #3A8686;
+    font-family: 'Varela Round', sans-serif;
+    font-size: 21px;
+    padding: 15px;
+    cursor: pointer;
+}
+/* #1DA491 */ /*this is the light color*/
+
+.nav{
+    display: flex;
+    justify-content: space-between;
+}

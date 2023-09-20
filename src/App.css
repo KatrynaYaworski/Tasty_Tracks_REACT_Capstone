@@ -1,0 +1,39 @@
+/* PROGRESS BAR */
+.bar.completed {
+    background-color: #1DA491; /* Green background for filled bar */
+    width: 200px;
+    height: 10px;
+  }
+  .bar{
+    background-color: rgb(219, 219, 219); /* Green background for filled bar */
+    width: 200px;
+    height: 10px;
+    border-radius: 10px;
+  }
+
+.circle{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: solid rgb(170, 170, 170);
+    border-radius: 30px;
+    width: 20px;
+    height: 20px;
+    font-weight: 900;
+    font-size: larger;
+}
+
+.circle.completed {
+    background-color: #1DA491; 
+    color: white; 
+    border-color: #1DA491; 
+  }
+
+  /* App */
+  body{
+    background: url(https://www.macrocalculator.org/assets/images/background-1.svg), url(https://www.macrocalculator.org/assets/images/background-2.svg), url(https://www.macrocalculator.org/assets/images/background-3.svg), url(https://www.macrocalculator.org/assets/images/blog_background.svg);
+    background-position: top right, 0px 450px, left bottom, right 700px;
+    background-size: 800px 421px, 500px 1020px, 900px, 900px;
+    background-repeat: no-repeat;
+    min-height: 200vh;
+}

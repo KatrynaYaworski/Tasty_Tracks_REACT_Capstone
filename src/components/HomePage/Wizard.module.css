@@ -1,0 +1,332 @@
+/* Wizard Container */
+
+.wizard_container{
+    border: solid rgb(200, 200, 200);
+    width: 35vw;
+    border-radius: 15px;
+    border-width: 2px;
+    padding: 40px 30px;
+    background-color: white;
+    height: fit-content;
+}
+.wizard_xbtn{
+    background-color: transparent;
+    border: none;
+    color: black;
+    cursor: pointer;
+    float: right;
+    font-size: 15px;
+    font-weight: bold;
+    margin-top: -30px;
+    margin-right: -20px;
+}
+
+.next_btn{
+    background-color: #1DA491;
+    border: none;
+    border-radius: 6px;
+    padding: 5px 10px;
+    width: 120px;
+    height: 30px;
+    color: white;
+    font-weight: bolder;
+    cursor: pointer;
+    box-shadow: inset  #1c9786; 
+    transition: color .1s ease-in-out, box-shadow .2s ease-in-out;
+}
+
+.next_btn:hover{
+    box-shadow: inset 200px 0 0 0 #3A8686;
+      color: white;
+}
+
+.previous_btn{
+    background-color: #1DA491;
+    border: none;
+    border-radius: 6px;
+    padding: 5px 10px;
+    width: 120px;
+    height: 30px;
+    color: white;
+    font-weight: bolder;
+    cursor: pointer;
+    box-shadow: inset  #1c9786; 
+    transition: color .1s ease-in-out, box-shadow .2s ease-in-out;
+}
+.previous_btn:hover{
+    box-shadow: inset 200px 0 0 0 #3A8686;
+      color: white;
+}
+
+.wizard_btn_container{
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 40px;
+}
+
+/* Wizard Step One */
+
+.w_so_top_container{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+
+}
+.w_so_top_container section{
+    font-size: 15px;
+    padding: 20px 0 6px 0 ;
+}
+.w_so_radio_btns_container{
+    display: flex;
+    width: 200px;
+
+}
+.w_so_top_left_container{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.w_so_top_left_container label{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 6px;
+  border: #dcdbdb;
+  transition: all 0.3s;
+  background-color: #dbdbdb;
+  color: rgb(138, 137, 137);
+  border-radius: 6px;
+  width: 59px;
+  cursor: pointer;
+  font-size: x-small;
+  font-weight: bolder;
+  margin-right: 10px;
+}
+.w_so_top_left_container label:hover{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 6px;
+    transition: all 0.3s;
+    border: #1c9786;
+    background-color: #1c9786;
+    color: rgb(255, 255, 255);
+    border-radius: 6px;
+    width: 59px;
+    cursor: pointer;
+    font-size: x-small;
+    font-weight: bolder;
+    margin-right: 10px;
+  }
+
+.w_so_top_left_container input[type="radio"]{
+    display: none;
+    cursor: pointer;
+}
+
+.w_so_top_left_container input[type="radio"]:checked + label{
+    border: #1c9786;
+    background-color: #1c9786;
+    color: white;
+    cursor: pointer;
+}
+.w_so_top_left_container input[type="radio"]:checked + label:hover{
+    border: #3A8686;
+    background-color: #3A8686;
+    color: white;
+    cursor: pointer;
+}
+
+.w_so_top_right_container input{
+    border: 2px solid rgb(220, 218, 218);
+    border-radius: 6px;
+    padding: 5px;
+    font-size: small;
+    width: 10.5vw;
+}
+
+
+.w_so_top_right_container input:focus{
+    outline: rgb(220, 218, 218);
+
+}
+
+
+
+
+.w_so_bottom_container{
+    display: flex;
+    flex-direction: column;
+    padding: 0 20px;
+}
+
+.w_so_activity_title{
+    font-size: 15px;
+    padding: 20px 0 6px 0 ;
+}
+
+.w_so_activity_container select{
+    width: 32.5vw;
+    border-radius: 6px;
+    padding: 5px;
+    border-color: rgb(220, 218, 218);
+    border-width: 2px;
+    font-size: small;
+    color: #1DA491;
+    font-weight: 540;
+}
+
+.w_so_activity_container select:focus{
+    outline: rgb(220, 218, 218);
+ 
+ }
+
+/* Wizard Step Two */
+.w_st_top_container{
+    display: flex;
+    align-items: flex-start center;
+    flex-direction: column; 
+    justify-content: center;
+ 
+}
+
+
+.w_st_container{
+    display: flex;
+    flex-direction: column;
+    align-items: center flex-start;
+    padding-left: 1.5vw;
+}
+
+.w_st_section{
+    font-size: 15px;
+    padding: 20px 0 6px 0 ;
+}
+
+.w_st_goal_title{
+    font-size: 15px;
+    padding: 20px 0 6px 0 ;
+}
+
+.w_st_input{
+    border-top-left-radius: 6px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 6px;
+    padding: 5px;
+    border: 2px solid rgb(220, 218, 218);
+    font-size: small;
+}
+#w_st_input_weight{
+    width: 28.5vw;
+}
+#w_st_input_inches{
+    width: 10.5vw;
+}
+#w_st_input_feet{
+    width: 10.5vw;
+}
+
+
+.w_st_input:focus{
+    outline: rgb(220, 218, 218);
+
+}
+
+.w_st_hf_container{
+    display: flex;
+    justify-content: space-between;
+    padding-right: 60px;
+}
+
+.w_st_bottom_container{
+  display: flex;
+  justify-content: center;
+}
+
+.w_st_bottom_container select{
+    width: 15vw;
+    border-radius: 6px;
+    padding: 5px;
+    border-color: rgb(220, 218, 218);
+    border-width: 2px;
+    font-size: small;
+    color: #1DA491;
+    font-weight: 540;
+}
+
+.w_st_bottom_container select:focus{
+    outline: rgb(220, 218, 218);
+ 
+ }
+
+.w_st_span{
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+    border: 2px solid rgb(220, 218, 218);
+    border-left: none;
+    padding: 3px;
+    background-color: rgb(234, 233, 233);
+    color: #1c9786;
+    font-weight: 400;
+ }
+
+ .w_st_middle_input_container{
+    display: flex;
+    align-items: center;
+ }
+ .w_st_top_left_container{
+    display: flex;
+    align-items: center;
+ }
+ .w_st_top_right_container{
+    display: flex;
+    align-items: center;
+ }
+
+
+ /* Wizard Results */
+
+ .wresults_macro_container{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+ }
+ .wresults_macro_container h2{
+    margin-bottom: 30px;
+ }
+
+ .wresults_macro_container{
+    display: flex;
+    align-items: center;
+
+ }
+ .wresults_macro_boxes_container{
+    display: flex;
+    justify-content: space-between;
+    gap: 2vw;
+ }
+ .wresults_macro_box{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #EDEEFF;
+    border-radius: 5px;
+    background-color: #EDEEFF;
+    width: 100px;
+    height: 100px;
+    font-size: x-small;
+ }
+
+ .wresults_number{
+    font-size: large;
+    font-weight: 600;
+ }
+ .wresults_macro_image{
+    position: absolute;
+    top: -30px;
+ }
