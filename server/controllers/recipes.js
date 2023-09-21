@@ -1,11 +1,15 @@
-const { sequelize } = require('../util/database');
-
+const { sequelize } = require("../util/database");
 
 module.exports = {
+  getRecipes: (req, res) => {
+    let mySequelQuery = `SELECT
+                              r.*,
+                              m.meal_type
+                          FROM
+                              recipes r
+                          INNER JOIN
+                              meals m ON r.meal_id = m.meal_id;`;
 
-getRecipes: (req, res) => {
-    let mySequelQuery = `Select * From recipes`;
-    
     sequelize
       .query(mySequelQuery)
       .then((dbRes) => {
@@ -13,4 +17,4 @@ getRecipes: (req, res) => {
       })
       .catch((e) => console.log("error when retrieving the items", e));
   },
-}
+};

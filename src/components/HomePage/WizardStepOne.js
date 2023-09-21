@@ -22,9 +22,9 @@ const WizardStepOne = ({
         <div className={styles.w_so_top_left_container}>
           <section className={styles.w_so_section}>Gender</section>
           <div className={styles.w_so_radio_btns_container}>
-            <input onClick={(e) => setGender(e.target.value)} type="radio" id="male" checked={gender === 'Male'} name="gender" value="Male" />
+            <input onChange={(e) => setGender(e.target.value)} type="radio" id="male" checked={gender === 'Male'} name="gender" value="Male" />
             <label htmlFor="male">MALE</label>
-            <input onClick={(e) => setGender(e.target.value)} type="radio" id="female" checked={gender === 'Female'}  name="gender" value="Female" />
+            <input onChange={(e) => setGender(e.target.value)} type="radio" id="female" checked={gender === 'Female'}  name="gender" value="Female" />
             <label htmlFor="female">FEMALE</label>
           </div>
         </div>

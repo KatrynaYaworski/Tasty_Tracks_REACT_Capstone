@@ -15,7 +15,7 @@ module.exports = {
                   
         CREATE TABLE users(
                 user_id SERIAL PRIMARY KEY,
-                email varchar (40) NOT NULL,
+                username varchar (40) NOT NULL,
                 password varchar (200) NOT NULL
             );
        

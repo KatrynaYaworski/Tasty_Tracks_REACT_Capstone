@@ -24,6 +24,18 @@ header{
     padding: 15px;
     cursor: pointer;
 }
+.nav_btn:hover{
+    background-color: transparent;
+    border: none;
+    color: #3A8686;
+    font-family: 'Varela Round', sans-serif;
+    font-size: 21px;
+    padding: 15px;
+    cursor: pointer;
+    text-decoration: underline;
+    font-weight: bold;
+}
+
 /* #1DA491 */ /*this is the light color*/
 
 .nav{

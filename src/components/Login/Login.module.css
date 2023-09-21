@@ -1,0 +1,79 @@
+main {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    font-family: 'Montserrat', sans-serif;
+    width: 25vw;
+    height: 45vh;
+}
+.login_header{
+    font-size: x-large;
+    font-weight: 100;
+}
+
+.auth_form {
+    padding: 25px;
+    width: 80%;
+}
+
+.input_header {
+    font-weight: 100;
+}
+
+.form_input {
+    padding: 9px;
+    width: 100%;
+    margin-bottom: 2vh;
+    border: 1px solid rgb(139, 137, 137);
+    border-radius: 6px;
+    color: #7a7a7a;
+}
+
+.form_input:focus {
+    border: 2px solid #1c9786;
+    outline: #1c9786;
+    color: #3A8686;
+}
+
+.login_btn_container{
+    display: flex;
+    justify-content: center;
+}
+
+.login_btn{
+    background-color: #1DA491;
+    border: none;
+    border-radius: 6px;
+    padding: 5px 10px;
+    width: 220px;
+    height: 30px;
+    color: white;
+    font-weight: bolder;
+    cursor: pointer;
+    box-shadow: inset  #1c9786; 
+    transition: color .1s ease-in-out, box-shadow .2s ease-in-out;
+}
+
+.login_btn:hover{
+    box-shadow: inset 220px 0 0 0 #3A8686;
+      color: white;
+}
+
+.login_or_register_text{
+    font-size: smaller;
+}
+
+.login_or_register_btn{
+    text-decoration: underline;
+    background-color: transparent;
+    border: none;
+    font-size: smaller;
+    color: #3A8686;
+    cursor: pointer;
+}
+
+.login_or_register_btn:hover{
+    font-weight: bold;
+    text-decoration: none;
+}
