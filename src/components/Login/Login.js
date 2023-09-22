@@ -18,7 +18,7 @@ const Login = ({ closeModal }) => {
       password,
     };
 
-    if(password !== confirmedPassword){
+    if(register && password !== confirmedPassword){
       setError("Passwords Do not match")
       return
     }
@@ -30,7 +30,7 @@ const Login = ({ closeModal }) => {
       })
       .catch((err) => {
         console.error(err);
-        setError("Username not available")
+        register ? setError("Username not available") : setError("Username or Password is incorrect") 
       });
 
     console.log("submitHandler called");
@@ -83,7 +83,9 @@ const Login = ({ closeModal }) => {
       </form>
       <div className={styles.auth_btn}>
       <span className={styles.login_or_register_text}>{register ? "Already have an account?" : "Not Registered?" }</span>
-      <button className={styles.login_or_register_btn} onClick={() => setRegister(!register)}>
+      <button className={styles.login_or_register_btn} onClick={() => {
+        setRegister(!register)
+        setError('')}}>
          {register ? "Login" : "Create an account"}
       </button>
       </div>

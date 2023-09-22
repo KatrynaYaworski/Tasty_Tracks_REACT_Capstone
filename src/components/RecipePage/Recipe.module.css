@@ -7,36 +7,40 @@
 
 .card_container{
     display: flex;
+    position: relative;
     flex-direction: column;
     margin-top: 30px;
     background-color: white;
     padding: 0;
     cursor: pointer;
     border: 1px solid #eee;
-    box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px;
+    box-shadow: rgba(0, 0, 0, 0.06) 4px 4px 4px;
     transition: all .3s ease-in-out;
-    border: 1px solid black;
+    position: relative; 
+    z-index: 2;
 }
 
 .card_container:hover {
     box-shadow: rgba(0, 0, 0, 0.22) 0px 19px 43px;
     transform: translate3d(0px, -1px, 0px);
+    z-index: 2;
 }
 .image_container{
-    height: 170px;
+    height: 180px;
     width: 300px;
-    overflow: hidden; /* Hide the parts of the image outside the clipping path */
+    overflow: hidden;
     position: relative; 
-   
+    z-index: 2;  
 }
 
 .image {
     /* height: 100%;
     width: 100%; */
-    height: 180px;
-    width: 310px;
+    height: 175px;
+    width: 345px;
     object-fit: cover;
     clip-path: square(90%); 
+    z-index: 1;
   }
   .recipe_name{
      font-size: large;
@@ -68,7 +72,6 @@
 }
 
 .macro_data{
-
     padding: 3px;
 }
 .macro_title{
@@ -86,10 +89,171 @@
 }
 
 #macro_title_carbs{
-    background-color: #3A8686
+    background-color: rgb(58, 134, 134)
 }
 
 #macro_title_protein{
     background-color: #C00001
-
 }
+
+/* Type Filters */
+
+.filter_radio_btns_container{
+    display: flex;
+}
+.filter_container{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.filter_container label{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 6px;
+  border: #dcdbdb;
+  transition: all 0.3s;
+  background-color: #dbdbdb;
+  color: rgb(138, 137, 137);
+  border-radius: 6px;
+  width: 79px;
+  cursor: pointer;
+  font-size: x-small;
+  font-weight: bolder;
+  margin-right: 10px;
+}
+.filter_container label:hover{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 6px;
+    transition: all 0.3s;
+    border: #1c9786;
+    background-color: #1c9786;
+    color: rgb(255, 255, 255);
+    border-radius: 6px;
+    width: 80px;
+    cursor: pointer;
+    font-size: x-small;
+    font-weight: bolder;
+    margin-right: 10px;
+  }
+
+.filter_container input[type="radio"]{
+    display: none;
+    cursor: pointer;
+}
+
+.filter_container input[type="radio"]:checked + label{
+    border: #1c9786;
+    background-color: #1c9786;
+    color: white;
+    cursor: pointer;
+}
+.filter_container input[type="radio"]:checked + label:hover{
+    border: #3A8686;
+    background-color: #3A8686;
+    color: white;
+    cursor: pointer;
+}
+
+.filter_btn{
+    border: none;
+    border-radius: 22px;
+    padding: 10px;
+    background-color: #1c9786;
+    cursor: pointer;
+}
+
+.filter_btn:hover{
+    border: none;
+    border-radius: 22px;
+    padding: 10px;
+    background-color: grey;
+    cursor: pointer;
+}
+
+.search_container_wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search_container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    border-radius: 9px;
+    width: 22vw;
+    color: white;
+  }
+  
+  .search_input {
+    padding: 10px 30px 10px 10px; 
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    outline: none;
+    width: 100%;
+    background-color: rgb(255, 255, 255);
+  }
+  
+  .search_icon {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    padding: 0 15px;
+    background-color: transparent;
+    border: none;
+}
+  
+#sort_label{
+    width: 5px;
+    height: 1px;
+    /* margin: 5px 5px 5px 0; */
+}
+
+.filters_wrapper{
+    display: flex;
+    align-items: center;
+    width: 100vw;
+    height: 25px;
+    margin-top: 20px;
+    justify-content: center;
+    justify-content: space-evenly;
+}
+
+.addnew_btn{
+    background-color: #1DA491;
+    border: none;
+    border-radius: 6px;
+    padding: 5px 10px;
+    width: 150px;
+    height: 30px;
+    color: white;
+    font-weight: bolder;
+    cursor: pointer;
+    box-shadow: inset  #1c9786; 
+    transition: color .1s ease-in-out, box-shadow .2s ease-in-out;
+}
+
+.addnew_btn:hover{
+    box-shadow: inset 200px 0 0 0 #3A8686;
+    color: white;
+}
+.recipes_title_container{
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    
+}
+.recipes_title{
+    font-family: 'Yellowtail', cursive;
+    font-size: 90px;
+    color: #1c9786;
+    width: 80vw;
+    margin: -40px 0;
+}
+  
+  

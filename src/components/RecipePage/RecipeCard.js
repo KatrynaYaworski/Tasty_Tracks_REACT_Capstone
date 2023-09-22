@@ -1,17 +1,11 @@
 import React from "react";
 import styles from "./Recipe.module.css";
 
-// import { useNavigate } from "react-router-dom";
 
 const RecipeCard = ({ recipe }) => {
-  //   const navigate = useNavigate();
-  //   const handleClick = () => {
-  //     navigate(`/recipe/${recipe.recipe_id}`);
-  //   };
   return (
     <button
       className={styles.card_container}
-      /* { onClick={handleClick}>} */
     >
       <div>
         <div className={styles.image_container}>

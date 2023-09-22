@@ -1,6 +1,5 @@
 import React from "react";
-import { useState, useEffect } from "react";
-import axios from "axios";
+import { useState } from "react";
 import WizardStepOne from "./WizardStepOne";
 import WizardStepTwo from "./WizardStepTwo";
 import WizardResults from "./WizardResults";
