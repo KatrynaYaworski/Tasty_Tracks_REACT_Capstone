@@ -42,12 +42,23 @@
     clip-path: square(90%); 
     z-index: 1;
   }
+  .recipe_name_type_container{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 5px;
+    
+  }
   .recipe_name{
      font-size: large;
+     color: rgb(68, 68, 68);
   }
   .recipe_meal{
      margin: 5px 0;
      font-size: medium;
+     color: grey;
+
   }
   
 .recipe_card_btn{
@@ -111,7 +122,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 8px 6px;
+  padding: 8px 8px;
   border: #dcdbdb;
   transition: all 0.3s;
   background-color: #dbdbdb;
@@ -119,7 +130,7 @@
   border-radius: 6px;
   width: 79px;
   cursor: pointer;
-  font-size: x-small;
+  font-size: small;
   font-weight: bolder;
   margin-right: 10px;
 }
@@ -127,7 +138,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 8px 6px;
+    padding: 8px 8px;
     transition: all 0.3s;
     border: #1c9786;
     background-color: #1c9786;
@@ -135,7 +146,7 @@
     border-radius: 6px;
     width: 80px;
     cursor: pointer;
-    font-size: x-small;
+    font-size: small;
     font-weight: bolder;
     margin-right: 10px;
   }
@@ -255,5 +266,132 @@
     width: 80vw;
     margin: -40px 0;
 }
+
+/* Modal */
+/* .modal {
+    display: none;
+    justify-content: center;
+    align-items: center; 
+    position: fixed; 
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+} */
+
+.modal_content {
+    flex-direction: column;
+}
+
+/* Modal Header */
+#detail_modal{
+    background-color: #dcdbdb ;
+
+}
+#model_header_outer_container{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding-bottom: 5px;
+}
+
+.meal_title_modal {
+    font-family: 'Manrope', sans-serif;
+    font-size: x-large;
+    color: rgb(80, 80, 80);
+    margin: 5px 5px;
+    max-width: 300px;
+    font-weight: bolder;
+}
+
+
+
+/* Modal Middle Section */
+#modal_middle_container {
+    display: flex;
+    justify-content: space-around;
+    
+}
+
+#modal_middle_left_container {
+    display: flex;
+    background-color: white;
+    flex-direction: column;
+    max-width: 60%;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 10px;
+    height: 100%;
+    padding: 15px 15px;
+}
+.recipe_detail_image{
+    height: 200px;
+    width: 355px;
+}
+
+.kcal_container_modal {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+    align-items: center;
+    padding-top: 10px;
+}
+
+.kcal_data{
+    margin-left: 2px;
+    font-family: 'Mulish', sans-serif;
+}
+
+
+
+/* Modal Middle Right */
+#modal_middle_right_container {
+    display: flex;
+    background-color: white;
+    flex-direction: column;
+    width: 50%;
+    border-radius: 10px;
+    padding: 15px;
+    margin-left: 10px;
+}
+#mmr_heading_container{
+    display: flex;
+    justify-content: center;
+
+}
+#nutrients_container{
+  font-family: 'Mulish', sans-serif;
+
+}
+.nutrients{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 10px 0;
+}
+
+.recipe_details_r_title{
+    font-family: 'Manrope', sans-serif;
+    color: rgb(162, 162, 162);
+    height: 20%;
+    /* font-size: larger; */
+}
+
+#modal_bottom_container{
+    background-color: white;
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 15px;
+}
+
+#modal_ingredients{
+    font-family: 'Mulish', sans-serif;
+}
+
+
   
   

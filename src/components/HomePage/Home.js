@@ -1,7 +1,4 @@
 import React from "react";
-import { useState, useEffect } from "react";
-import axios from "axios";
-import WizardStepOne from "./WizardStepOne";
 import WizardContainer from "./WizardContainer";
 import styles from "./Home.module.css";
 

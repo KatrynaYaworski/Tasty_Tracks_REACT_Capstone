@@ -1,18 +1,36 @@
 import React from "react";
 import styles from "./Recipe.module.css";
+import { useState } from "react";
+import RecipeModal from "./RecipeModal/RecipeModal";
+import RecipeDetails from "./RecipeDetails";
 
 
 const RecipeCard = ({ recipe }) => {
+// console.log(`*****recipe=${recipe.recipe_id}`)
+    const [isModalOpen, setModalOpen] = useState(false);
+    const [recipeId, setRecipeId] = useState();
+    const openModal = () => {
+      setModalOpen(true);
+    };
+  
+    const closeModal = () => {
+      setModalOpen(false);
+    };
+    // const detailDisplay = recipe.map((recipe)=> )
   return (
+    <div>
     <button
+     onClick={openModal} 
       className={styles.card_container}
     >
       <div>
         <div className={styles.image_container}>
         <img className={styles.image} src={recipe.image_url} />
         </div>
+        <div className={styles.recipe_name_type_container}>
         <div className={styles.recipe_name}>{recipe.name}</div>
         <div className={styles.recipe_meal}>{recipe.meal_type}</div>
+        </div>
       </div>
       <div className={styles.macros_container}>
         <div className={styles.mac_container}>
@@ -44,6 +62,10 @@ const RecipeCard = ({ recipe }) => {
         </div>
       </div>
     </button>
+    <RecipeModal isOpen={isModalOpen} closeModal={closeModal}>
+        <RecipeDetails recipe={recipe}/>
+    </RecipeModal>
+    </div>
   );
 };
 

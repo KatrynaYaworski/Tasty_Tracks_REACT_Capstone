@@ -9,7 +9,6 @@ import Login from "./Login/Login";
 const Header = () => {
   const { state, dispatch } = useContext(AuthContext);
 
-
   const [isModalOpen, setModalOpen] = useState(false);
   const openModal = () => {
     setModalOpen(true);

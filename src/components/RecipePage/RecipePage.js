@@ -6,6 +6,8 @@ import styles from "./Recipe.module.css";
 import Search from "./Search";
 import FilterMealTypes from "./FilterMealTypes";
 import FilterMacros from "./FilterMacros";
+import RecipeModal from "./RecipeModal/RecipeModal";
+import RecipeDetails from "./RecipeDetails";
 
 const RecipePage = () => {
   const [recipes, setRecipes] = useState([]);
@@ -13,6 +15,15 @@ const RecipePage = () => {
   const [searchType, setSearchType] = useState("");
   const [searchMacro, setSearchMacro] = useState("");
   const [direction, setDirection] = useState("ascending");
+
+  const [isModalOpen, setModalOpen] = useState(false);
+  const openModal = () => {
+    setModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setModalOpen(false);
+  };
 
   const recipeDisplay = recipes
     .filter((recipe) => {
@@ -69,7 +80,6 @@ const RecipePage = () => {
         <FilterMacros setSearchMacro={setSearchMacro} searchMacro={searchMacro} direction={direction} setDirection={setDirection}/>     
         <button className={styles.addnew_btn}>ADD NEW RECIPE</button>   
       </div>
-
       <div className={styles.recipe_container}>{recipeDisplay}</div>
     </div>
   );
