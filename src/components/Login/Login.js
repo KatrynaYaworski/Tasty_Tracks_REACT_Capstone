@@ -6,7 +6,7 @@ import AuthContext from "../../store/authContext";
 const Login = ({ closeModal }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [register, setRegister] = useState(true);
+  const [register, setRegister] = useState(false);
   const [error, setError] = useState('');
   const [confirmedPassword, setConfirmedPassword] = useState('')
   const { state, dispatch } = useContext(AuthContext);
@@ -35,7 +35,7 @@ const Login = ({ closeModal }) => {
 
     console.log("submitHandler called");
   };
-  console.log({ state })
+  // console.log({ state })
   return (
     <main>
       <div className={styles.login_header}>{register ? "Create an account" : "Sign in to Tasty Tracks"}</div>

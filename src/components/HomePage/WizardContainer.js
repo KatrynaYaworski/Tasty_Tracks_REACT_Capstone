@@ -1,11 +1,16 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import WizardStepOne from "./WizardStepOne";
 import WizardStepTwo from "./WizardStepTwo";
 import WizardResults from "./WizardResults";
 import styles from "./Wizard.module.css";
+import AuthContext from "../../store/authContext";
+import axios from "axios";
+import {useNavigate} from 'react-router-dom'
 
 const WizardContainer = () => {
+  const { state, dispatch } = useContext(AuthContext);
+  const navigate = useNavigate()
   const [currentStep, setCurrentStep] = useState(1);
   const [error, setError] = useState('');
 
@@ -36,8 +41,8 @@ const WizardContainer = () => {
   const onStepTwo = currentStep === 2;
   const onStepThree = currentStep === 3;
 
+  const height = Number(feet) * 12 + Number(inches);
   const goToNextStep = () => {
-    const height = Number(feet) * 12 + Number(inches);
     if (currentStep < 3) {
       if (currentStep === 1 && gender && age && activityLevel) {
         setCurrentStep(currentStep + 1);
@@ -81,7 +86,7 @@ const WizardContainer = () => {
         // fat Loss
         // maintain
         // muscle gain
-        console.log({ bmrTotal, tdeeTotal, caloriesTotal });
+        // console.log({ bmrTotal, tdeeTotal, caloriesTotal });
         const proteinTotal =
           goal === "fat loss"
             ? (caloriesTotal * 0.3) / 4
@@ -131,6 +136,7 @@ const WizardContainer = () => {
       }
     }
   };
+
   const stepBack = () => {
     if (currentStep === 3) {
       setCurrentStep(1);
@@ -138,6 +144,33 @@ const WizardContainer = () => {
       setCurrentStep(currentStep - 1);
     }
   };
+
+  
+  const postResults = () => {
+    let body = {
+      user_id: state.userId,
+      goal: goal,
+      activity: activityLevel,
+      weight: weight,
+      age: age,
+      gender: gender,
+      height: height,
+      carbs: carbs,
+      calories: calories,
+      fat: fat,
+      protein: protein,
+    };
+    if(onStepThree){
+      console.log({body})
+    axios.post("/user-details", body).then((res) => {
+     
+      navigate('/Meal Planner')
+    }).catch(err => setError('Invalid entry'));
+    }else {
+      goToNextStep()
+    }
+  };
+            
 
   return (
     <div className={styles.wizard_container}>
@@ -148,6 +181,7 @@ const WizardContainer = () => {
           fat={fat}
           protein={protein}
           currentStep={currentStep}
+          error={error}
         />
       ) : onStepTwo ? (
         <WizardStepTwo
@@ -187,7 +221,7 @@ const WizardContainer = () => {
         ) : (
           ""
         )}
-        <button className={styles.next_btn} onClick={goToNextStep}>
+        <button className={styles.next_btn} onClick={postResults}>
           {onStepThree ? "Save Results" : onStepTwo ? "Calculate" : "Next"}
         </button>
       </div>

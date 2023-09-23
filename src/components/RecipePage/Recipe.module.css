@@ -361,12 +361,11 @@
 #mmr_heading_container{
     display: flex;
     justify-content: center;
-
 }
 #nutrients_container{
   font-family: 'Mulish', sans-serif;
-
 }
+
 .nutrients{
     display: flex;
     flex-direction: row;

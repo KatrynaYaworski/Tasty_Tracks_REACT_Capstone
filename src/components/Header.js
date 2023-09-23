@@ -1,5 +1,6 @@
 import React, { useState, useContext } from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import {useNavigate} from 'react-router-dom'
 import styles from "./Header.module.css";
 import logo from "../images/calories-calculator.png";
 import Modal from "./Modal/Modal";
@@ -8,7 +9,7 @@ import Login from "./Login/Login";
 
 const Header = () => {
   const { state, dispatch } = useContext(AuthContext);
-
+  const nav = useNavigate();
   const [isModalOpen, setModalOpen] = useState(false);
   const openModal = () => {
     setModalOpen(true);
@@ -40,7 +41,10 @@ const Header = () => {
           <button className={styles.nav_btn}>Recipes</button>
         </Link>
         { state.token ? 
-          <button className={styles.nav_btn} onClick={() => dispatch({type: 'LOGOUT'})}>Logout</button> :
+          <button className={styles.nav_btn} onClick={() => {
+            dispatch({type: 'LOGOUT'})
+            nav('/');
+          }}>Logout</button> :
           <button onClick={openModal} className={styles.nav_btn}> Login</button>
         }
         <Modal isOpen={isModalOpen} closeModal={closeModal}>

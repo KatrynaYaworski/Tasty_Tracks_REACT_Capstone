@@ -1,14 +1,14 @@
-import React from "react";
+import React, { useState, useContext } from "react";
 import styles from "./Wizard.module.css";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
-const WizardResults = ({carbs, calories, fat, protein}) => {
-    console.log(
-         {carbs, calories, fat, protein}
-     )
+
+const WizardResults = ({ carbs, calories, fat, protein, error }) => {
+  
   return (
     <div className={styles.wizard_results_container}>
       <div className={styles.wresults_macro_container}>
-      <h2>Recommended Daily Intake</h2>
+        <h2>Recommended Daily Intake</h2>
         <div className={styles.wresults_macro_boxes_container}>
           <div className={styles.wresults_macro_box}>
             <img
@@ -60,6 +60,7 @@ const WizardResults = ({carbs, calories, fat, protein}) => {
           </div>
         </div>
       </div>
+      {error && <div style={{color:'red'}}>{error}</div>}
     </div>
   );
 };

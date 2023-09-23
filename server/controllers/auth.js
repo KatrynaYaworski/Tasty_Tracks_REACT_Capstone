@@ -31,12 +31,12 @@ const login = async (req, res) => {
       const isAuthenticated = bcrypt.compareSync(password, foundUser.password);
 
       if (isAuthenticated) {
-        const token = createToken(foundUser.username, foundUser.id);
+        const token = createToken(foundUser.username, foundUser.user_id);
         const exp = Date.now() + 1000 * 60 * 60 * 48;
-
+        console.log(foundUser)
         const data = {
           username: foundUser.username,
-          userId: foundUser.id,
+          userId: foundUser.user_id,
           token: token,
           exp: exp,
         };
@@ -71,24 +71,25 @@ const register = async (req, res) => {
       const salt = bcrypt.genSaltSync(10);
       const hash = bcrypt.hashSync(password, salt);
 
-      const [newUser] = await sequelize.query(
+      const [newUserArr] = await sequelize.query(
         `
         INSERT INTO users(username, password)
         VALUES('${username}', '${hash}')
         RETURNING user_id, username
       `
       );
-
+      const [newUser] = newUserArr
       const token = createToken(newUser.username, newUser.user_id);
       const exp = Date.now() + 1000 * 60 * 60 * 48;
-
+      
       const data = {
         username: newUser.username,
         userId: newUser.user_id,
         token: token,
         exp: exp,
       };
-
+      console.log(newUser)
+      console.log(data)
       res.status(200).send(data);
     }
   } catch (error) {
