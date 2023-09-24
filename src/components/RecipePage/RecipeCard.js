@@ -44,7 +44,7 @@ const RecipeCard = ({ recipe }) => {
           <div className={styles.macro_title} id={styles.macro_title_carbs}>
             Carbs
           </div>
-          <div className={styles.macro_data}>{recipe.carbohydrates}</div>
+          <div className={styles.macro_data}>{recipe.carbs}</div>
         </div>
 
         <div className={styles.mac_container}>

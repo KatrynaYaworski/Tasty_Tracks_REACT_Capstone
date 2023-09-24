@@ -4,7 +4,7 @@
 
 module.exports = [
     {
-        recipe_name: 'Veggie Omlet',
+        recipe_name: 'Veggie Omlette',
         instructions: 'Preheat the oven to 392F. If the holes in the avocado seem a little small then spoon a little extra out to make room for an egg. Place the avocado in a roasting dish lined with grease proof paper and line the hole in the avocado with smoked salmon. Crack open the eggs carefully into a dish and spoon in the yolks into each hole and then as much whites as will fit. Season with salt and pepper and then place in the oven for around 15-20 minutes. While they are in the oven heat up the plum tomatoes in a pan. Take the avocados out of the oven and then sprinkle with chilli flakes and the fresh dill. Serve warm with the tomatoes on the side.',
         ingredients: ['1 avocado halved, seed removed', '2 free range medium eggs', '40g smoked salmon', '200g tinned plum tomatoes', 'sprinkle chilli flakes', 'sprinkle of fresh dill'],
         calories: 390,
@@ -136,7 +136,7 @@ module.exports = [
 
     },
     {
-        recipe_name: 'Egg White Omlet',
+        recipe_name: 'Egg White Omlette',
         instructions: 'Pour egg whites in a large skillet that has been oiled or sprayed with cooking spray and heated at medium to high heat. Add chopped tomato and spinach evenly over liquid egg whites.Allow eggs to cook until completely set, about 5-8 minutes.Use large spatula to flip sides of egg whites into an omelet and transfer to a large plate. Top with your favorites and enjoy immediately.',
         ingredients: ['1 cup egg whites from a carton', '1 small to medium tomato chopped', '1 small handful fresh baby spinach chopped', 'salt & pepper to taste', 'Optional toppings: avocado sriracha sauce, salsa and fresh cilantro'],
         calories: 167,
@@ -172,7 +172,7 @@ module.exports = [
 
     },
     {
-        recipe_name: 'Veggie Egg White Omlet',
+        recipe_name: 'Veggie Egg White Omlette',
         instructions: 'Heat a medium-sized pan and spray with cooking spray over medium-high heat. Add spinach and bell peppers, saute for 3 minutes. Pour egg whites into pan on top of the sauteed veggies, sprinkle goat cheese and cook until firm for an additional 4 minutes. Flip and fold omelette, side onto a place and enjoy with your favorite hot sauce',
         ingredients: ['4 egg whites', '1 cup fresh organic spinach', '½ red bell pepper, chopped', '1 tablespoon goat cheese', 'Cooking spray'],
         calories: 170,

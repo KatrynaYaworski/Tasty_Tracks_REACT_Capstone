@@ -6,8 +6,6 @@ import styles from "./Recipe.module.css";
 import Search from "./Search";
 import FilterMealTypes from "./FilterMealTypes";
 import FilterMacros from "./FilterMacros";
-import RecipeModal from "./RecipeModal/RecipeModal";
-import RecipeDetails from "./RecipeDetails";
 
 const RecipePage = () => {
   const [recipes, setRecipes] = useState([]);
@@ -37,25 +35,9 @@ const RecipePage = () => {
     })
     .sort((a, b) => {
       if (direction === "descending") {
-        if (searchMacro === "calories") {
-          return a.calories - b.calories;
-        } else if (searchMacro === "protein") {
-          return a.protein - b.protein;
-        } else if (searchMacro === "fat") {
-          return a.fat - b.fat;
-        } else if (searchMacro === "carbs") {
-          return a.carbohydrates - b.carbohydrates;
-        }
+        a[searchMacro] - b[searchMacro]
       } else if (direction === "ascending") {
-        if (searchMacro === "calories") {
-          return b.calories - a.calories;
-        } else if (searchMacro === "protein") {
-          return b.protein - a.protein;
-        } else if (searchMacro === "fat") {
-          return b.fat - a.fat;
-        } else if (searchMacro === "carbs") {
-          return b.carbohydrates - a.carbohydrates;
-        }
+        b[searchMacro] - a[searchMacro]
       }
     })
     .map((recipe) => {
