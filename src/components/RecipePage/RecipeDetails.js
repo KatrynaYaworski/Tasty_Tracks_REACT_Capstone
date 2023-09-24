@@ -38,7 +38,7 @@ const RecipeDetails = ({ recipe }) => {
             <hr />
             <div class={styles.nutrients} id={styles.carbs_modal_container}>
               <span id={styles.carbs_modal_name}>Carbohydrates</span>
-              <span id={styles.carbs_modal}>{recipe.carbohydrates}g</span>
+              <span id={styles.carbs_modal}>{recipe.carbs}g</span>
             </div>
             <hr />
             <div class={styles.nutrients} id={styles.protein_modal_container}>

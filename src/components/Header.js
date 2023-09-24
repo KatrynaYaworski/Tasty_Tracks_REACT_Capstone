@@ -33,7 +33,8 @@ const Header = () => {
         <div>Tasty Tracks</div>
       </div>
       <nav className={styles.nav}>
-        <Link to="/"><button className={styles.nav_btn}>Home</button></Link>
+      <Link to="/"><button className={styles.nav_btn}>Home</button></Link>
+        <Link to="/Home"><button className={styles.nav_btn}>Calculator</button></Link>
         <Link to="/Meal Planner">
           <button className={styles.nav_btn}>Meal Planner</button>
         </Link>

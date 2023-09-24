@@ -17,11 +17,31 @@ th, td {
   }
   
   .meal_table tr:hover td {
-    border-bottom: 1.25px solid #1c9786;
-    border-top: 1.25px solid #1c9786;
+    border-top: 1.9px dotted #1c9786;
+    border-bottom: 1.9px dotted #1c9786;
   }
 
+  .meal_td_day_sticky{
+    background-color: #3A8686;
+    color: white;
+    /* display: flex;
+    justify-content: center; */
+    border: 1px solid #3A8686;
+    font-size: 18px;
+    font-weight: bold;
+    box-shadow: rgba(0, 0, 0, 0.4) 8px 8px 4px;
+    position: sticky;
+    top: 0;
+  }
 
+  .meal_td_header_sticky{
+    background-color: #E2F0D9;
+    color: #919191;
+    font-size: large;
+    font-weight:550;
+    position: sticky;
+    top: 0;
+  }
 
 .meal_td_day{
     /* font-family: 'M PLUS Rounded 1c', sans-serif; */
@@ -83,9 +103,18 @@ th {
     font-weight:550;
 }
 
-.macro_header:hover{
-    background-color: #63ca24;
-    color: #9a0404;
-    font-size: large;
-    font-weight:550;
+.meal_details_wrapper{
+    width: 75vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+.table_container{
+    max-height: 50vh;
+    overflow-y:scroll;
+    width: 75%;
+}
+.cells{
+    color: grey;
 }

@@ -30,7 +30,7 @@ module.exports = {
                 instructions text NOT NULL,
                 ingredients text NOT NULL,
                 calories integer NOT NULL,
-                carbohydrates integer NOT NULL,
+                carbs integer NOT NULL,
                 fat integer NOT NULL,
                 protein integer NOT NULL,
                 image_url varchar (300) NOT NULL,
@@ -43,7 +43,7 @@ module.exports = {
         CREATE TABLE user_meals(
                 user_meal_id SERIAL PRIMARY KEY,
                 meal_type varchar (40) NOT NULL,
-                week_day varchar (15) NOT NULL,
+                week_day integer NOT NULL, 
                 user_id integer,
                 recipe_id integer,
                 FOREIGN KEY (user_id) REFERENCES users (user_id),
@@ -58,8 +58,8 @@ module.exports = {
                 height integer NOT NULL,
                 weight integer NOT NULL,
                 goal varchar (40) NOT NULL,
-                BMR integer NOT NULL,
-                TDEE integer NOT NULL,
+                BMR integer,
+                TDEE integer,
                 calories integer NOT NULL,
                 carbs integer NOT NULL,
                 protein integer NOT NULL,
@@ -76,7 +76,7 @@ module.exports = {
          `
       );
       const seedPromiseArr = seedData.map((item) => {
-        return sequelize.query(`INSERT INTO recipes (name, instructions, ingredients, calories, carbohydrates, fat, protein, image_url, meal_id)
+        return sequelize.query(`INSERT INTO recipes (name, instructions, ingredients, calories, carbs, fat, protein, image_url, meal_id)
               VALUES (
                   '${item.recipe_name}',
                   '${item.instructions}',

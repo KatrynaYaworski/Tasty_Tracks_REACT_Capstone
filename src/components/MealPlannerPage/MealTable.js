@@ -1,9 +1,9 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useContext, useEffect, useRef } from "react";
 import styles from "./Meals.module.css";
 import AuthContext from "../../store/authContext";
 import axios from "axios";
 import Modal from "../Modal/Modal";
-import MealDetails from "./MealDetails";
+import MealDetails from "../MealPlannerPage/MealDetails/MealDetails";
 
 const dummySelectedDays = [
   {
@@ -57,6 +57,7 @@ const MealTable = () => {
   const [selectedIndex, setSelectedIndex] = useState();
   const [selectedKey, setSelectedKey] = useState();
   const [selectedDays, setSelectedDays] = useState(dummySelectedDays);
+  const totalsRef = useRef({});
 
   const openModal = (index, key) => {
     setSelectedKey(key);
@@ -102,14 +103,48 @@ const MealTable = () => {
     });
   }, []);
 
-  const formatRowData = (arr, accessor, index) =>
-    arr.map((key) => (
-      <td onClick={()=>openModal(index,key)}>
-        {recipes.find((r) => r.recipe_id === selectedDays?.[index]?.[key])?.[
+  const formatRowData = (arr, accessor, index) => {
+    let total = 0;
+
+    const getValue = (accessor, i, key) => {
+      const value =
+        recipes.find((r) => r.recipe_id === selectedDays?.[index]?.[key])?.[
           accessor
-        ] || ""}
-      </td>
-    ));
+        ] || "";
+      if (i < 5) {
+        if (value) {
+          total += value;
+        }
+        return value;
+      } else if (i === 5 && accessor !== "name") {
+        const totalPercent = Math.trunc((total / results[accessor]) * 100);
+        if (!totalsRef.current[index]) {
+          totalsRef.current[index] = {};
+        }
+        if (!totalsRef.current[index][accessor]) {
+          totalsRef.current[index][accessor] = {};
+        }
+        totalsRef.current[index][accessor].total = total;
+        totalsRef.current[index][accessor].totalPercent = totalPercent;
+        return totalPercent;
+      } else if (i === 6 && accessor !== "name") {
+        return total;
+      } else {
+        return results[accessor] || "";
+      }
+    };
+
+    return arr
+      .reverse()
+      .map((key, i) => {
+        return (
+          <td className={styles.cells} onClick={() => openModal(index, key)}>
+            {getValue(accessor, i, key)}
+          </td>
+        );
+      })
+      .reverse();
+  };
   //['', '', '', 'breakfast', 'snackOne', 'lunch', 'snackTwo', 'dinner']
   if (recipes && results) {
     return (
@@ -136,39 +171,22 @@ const MealTable = () => {
                   </tr>
                   <tr>
                     <td className={styles.meal_td}>Calories</td>
-                    <td>{results.calories}</td>
-                    {formatRowData(
-                      ["", "", ...mealKeys],
-                      "calories",
-                      i
-                    )}
+                    {formatRowData(["", "", "", ...mealKeys], "calories", i)}
                   </tr>
                   <tr>
                     <td className={styles.meal_td}>Carbs</td>
-                    <td>{results.carbs}</td>
-                    {formatRowData(
-                      ["", "", ...mealKeys],
-                      "carbohydrates",
-                      i
-                      )}
+                    <td className={styles.cells}>{results.carbs}</td>
+                    {formatRowData(["", "", ...mealKeys], "carbs", i)}
                   </tr>
                   <tr>
                     <td className={styles.meal_td}>Protein</td>
-                    <td>{results.protein}</td>
-                    {formatRowData(
-                      ["", "", ...mealKeys],
-                      "protein",
-                      i
-                      )}
+                    <td className={styles.cells}>{results.protein}</td>
+                    {formatRowData(["", "", ...mealKeys], "protein", i)}
                   </tr>
                   <tr>
                     <td className={styles.meal_td}>Fat</td>
-                      <td>{results.fat}</td>
-                    {formatRowData(
-                      ["", "", ...mealKeys],
-                      "fat",
-                      i
-                    )}
+                    <td className={styles.cells}>{results.fat}</td>
+                    {formatRowData(["", "", ...mealKeys], "fat", i)}
                   </tr>
                 </>
               ))}
@@ -176,7 +194,15 @@ const MealTable = () => {
           </table>
         </div>
         <Modal isOpen={isModalOpen} closeModal={closeModal}>
-          <MealDetails recipes={recipes} selectedDays={selectedDays} setSelectedDays={setSelectedDays} selectedKey={selectedKey} index={selectedIndex} />
+          <MealDetails
+            totalsRef={totalsRef}
+            headers={headers}
+            recipes={recipes}
+            selectedDays={selectedDays}
+            setSelectedDays={setSelectedDays}
+            selectedKey={selectedKey}
+            index={selectedIndex}
+          />
         </Modal>
       </div>
     );

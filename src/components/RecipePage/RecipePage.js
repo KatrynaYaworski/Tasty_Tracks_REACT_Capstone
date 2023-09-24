@@ -6,8 +6,8 @@ import styles from "./Recipe.module.css";
 import Search from "./Search";
 import FilterMealTypes from "./FilterMealTypes";
 import FilterMacros from "./FilterMacros";
-import RecipeModal from "./RecipeModal/RecipeModal";
-import RecipeDetails from "./RecipeDetails";
+import Modal from "./RecipeModal/RecipeModal"
+import AddRecipeForm from "./AddRecipeForm";
 
 const RecipePage = () => {
   const [recipes, setRecipes] = useState([]);
@@ -44,7 +44,7 @@ const RecipePage = () => {
         } else if (searchMacro === "fat") {
           return a.fat - b.fat;
         } else if (searchMacro === "carbs") {
-          return a.carbohydrates - b.carbohydrates;
+          return a.carbs - b.carbs;
         }
       } else if (direction === "ascending") {
         if (searchMacro === "calories") {
@@ -54,7 +54,7 @@ const RecipePage = () => {
         } else if (searchMacro === "fat") {
           return b.fat - a.fat;
         } else if (searchMacro === "carbs") {
-          return b.carbohydrates - a.carbohydrates;
+          return b.carbs - a.carbs;
         }
       }
     })
@@ -78,9 +78,12 @@ const RecipePage = () => {
       <div className={styles.filters_wrapper}>
         <FilterMealTypes setSearchType={setSearchType} searchType={searchType}/>
         <FilterMacros setSearchMacro={setSearchMacro} searchMacro={searchMacro} direction={direction} setDirection={setDirection}/>     
-        <button className={styles.addnew_btn}>ADD NEW RECIPE</button>   
+        <button onClick={openModal} className={styles.addnew_btn}>ADD NEW RECIPE</button>   
       </div>
       <div className={styles.recipe_container}>{recipeDisplay}</div>
+      <Modal isOpen={isModalOpen} closeModal={closeModal}>
+        <AddRecipeForm/>
+      </Modal>
     </div>
   );
 };
