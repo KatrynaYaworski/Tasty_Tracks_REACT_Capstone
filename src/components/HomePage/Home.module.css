@@ -1,28 +1,68 @@
-.home{
+.home {
     display: flex;
-    justify-content: space-between;
-    width: 70vw;
-    min-height: 60vh;
-}
-body{
-    background: url(https://tinyurl.com/bkrdone), url(https://tinyurl.com/bkrdtwo), url(https://tinyurl.com/bkrdthree), url(https://tinyurl.com/bkrdfour);
-    background-position: top right, 0px 450px, left bottom, right 700px;
-    background-size: 800px 421px, 500px 1020px, 900px, 900px;
-    background-repeat: no-repeat;
-    min-height: 200vh;
-}
-.home_body{
-   display: flex;
-   justify-content: center;
-    
+    justify-content: center;
+    width: 100vw;
+    gap: 80px;
+    margin-top: 30px;
+
 }
 
-.home_steps_container{
+.home_body {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.home_steps_container {
     display: flex;
     margin-top: 10vh;
     flex-direction: column;
     align-items: center;
 }
-.how_it_works_title{
-    font-size: larger;
+
+.how_it_works_title {
+    font-size: x-large;
+    margin-bottom: 10px;
+}
+
+.TOC_wrapper {
+    display: flex;
+    width: 73%;
+    justify-content: center;
+    background-color: white;
+}
+
+.TOC_container {
+    display: flex;
+    align-items: center;
+    border: solid rgb(200, 200, 200);
+    border-radius: 15px;
+    border-width: 2px;
+    width: 35vw;
+    margin: 20px 0;
+    padding: 25px 0;
+    flex-direction: column;
+}
+
+.TOC_title_container {
+    display: flex;
+    align-items: flex-start;
+    width: 75%;
+}
+
+
+.TOC_title {
+    align-items: flex-start;
+    font-size: x-large;
+}
+
+li {
+    color: #1c9786;
+    font-size: large;
+    cursor: pointer;
+}
+
+li:hover {
+    text-decoration: underline;
+    font-weight: bold;
 }

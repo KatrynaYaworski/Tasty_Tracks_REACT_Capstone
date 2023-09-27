@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./Loading.module.css"; // Import your CSS for styling
-import calendar from "../Landing/video/images/Cal.png";
+import calendar from "../Landing/util/images/Cal.png";
 import image from "../../images/calories-calculator.png";
 
 function Loading() {

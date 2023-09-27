@@ -1,12 +1,12 @@
 import React from "react";
-import video from "./video/compressed-video.mp4"
+import video from "./util/compressed-video.mp4"
 import styles from "./LandinPage.module.css"
 import {useNavigate} from 'react-router-dom'
-import adaptImage from "./video/images/Adjust.png"
-import commitImage from "./video/images/Commit.png"
-import calculateImage from "./video/images/Calc.png"
-import calendarImage from "./video/images/Cal.png"
-import mealImage from "./video/images/Meal.png"
+import adaptImage from "./util/images/Adjust.png"
+import commitImage from "./util/images/Commit.png"
+import calculateImage from "./util/images/Calc.png"
+import calendarImage from "./util/images/Cal.png"
+import mealImage from "./util/images/Meal.png"
 
 const LandingPage=()=>{
     const navigate = useNavigate()

@@ -427,6 +427,7 @@
     cursor: pointer;
     box-shadow: inset  #1c9786; 
     transition: color .1s ease-in-out, box-shadow .2s ease-in-out;
+    margin-bottom: 10px;
 }
 
 .save_btn:hover{
@@ -555,6 +556,28 @@ textarea::placeholder {
     padding: 5px;
 }
 
+
+.close_button {
+    position: absolute;
+    margin-left: 250px;
+    margin-top: -48px;
+    font-size: 25px;
+    padding: 5px;
+    background: none;
+    border: solid rgb(179, 0, 0);
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.06) 4px 4px 4px;
+    transition: all .3s ease-in-out;
+    z-index: 3;
+}
+
+.close_button:hover,
+.close_button:focus {
+    cursor: pointer;
+    box-shadow: rgba(179, 0, 0, 1) 0px 5px 13px;
+    transform: translate3d(0px, -1px, 0px);
+    z-index: 3;
+}
 
   
   

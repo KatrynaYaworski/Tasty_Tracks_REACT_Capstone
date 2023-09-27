@@ -1,52 +1,63 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Formik } from "formik";
 import styles from "./Recipe.module.css";
 import axios from "axios";
+import AuthContext from "../../store/authContext";
+import image from "../../images/default food image.png";
 
-const AddRecipeForm = () => {
+const AddRecipeForm = ({ closeModal, getRecipes }) => {
+  const { state, dispatch } = useContext(AuthContext);
   const [ingredients, setIngredients] = useState([]);
   const [name, setName] = useState("");
   const [quantity, setQuantity] = useState("");
+  const [error, setError] = useState("");
 
-//Meal ID 1 = Breakfast
-//Meal ID 2 = Main Recipes
-//Meal ID 3 = Snacks
+  //Meal ID 1 = Breakfast
+  //Meal ID 2 = Main Recipes
+  //Meal ID 3 = Snacks
   const initialValues = {
-    recipeName: "",
-    instructions: "",
+    name: "",
+    instructions: "Enjoy! 😋",
     ingredients: [],
     calories: "",
     carbs: "",
     fat: "",
     protein: "",
-    imageURL: "",
-    mealId: 0,
+    image_url: "",
+    userId: state.userId,
+    meal_type: 1,
   };
-//   name varchar (40) NOT NULL,
-//   instructions text NOT NULL,
-//   ingredients text NOT NULL,
-//   calories integer NOT NULL,
-//   carbs integer NOT NULL,
-//   fat integer NOT NULL,
-//   protein integer NOT NULL,
-//   image_url varchar (300) NOT NULL,
-//   meal_id integer,
-//   user_id integer,
-//   FOREIGN KEY(meal_id) REFERENCES meals(meal_id),
-//   FOREIGN KEY(user_id) REFERENCES users(user_id)
 
   const onSubmit = (values) => {
+    if (
+      values.calories === "" ||
+      values.carbs === "" ||
+      values.fat === "" ||
+      values.protein === "" ||
+      values.name === ""
+    ) {
+      setError('Please enter a value for all fields*')
+    }else{
     values.ingredients = ingredients;
-    axios
-      .post(`/userrecipes`, values)
-      .then((res) => console.log(res.data));
+    if (values.image_url === "") {
+      values.image_url = image;
+    }
+    console.log(values);
+    axios.post(`/recipes`, values).then((res) => {
+      closeModal();
+      getRecipes();
+      console.log(res.data);
+    });
+  }
   };
 
   const addIngredient = () => {
     const newIngredient = { name, quantity };
-    setIngredients([...ingredients, newIngredient]);
-    setName("");
-    setQuantity("");
+    if (name !== "") {
+      setIngredients([...ingredients, newIngredient]);
+      setName("");
+      setQuantity("");
+    }
   };
 
   const formReturn = (formData) => {
@@ -60,17 +71,17 @@ const AddRecipeForm = () => {
         <section className={styles.name_image_container}>
           <input
             className={styles.inputs}
-            value={values.recipeName}
+            value={values.name}
             onChange={handleChange}
-            name="recipeName"
+            name="name"
             placeholder="Recipe Name"
             type="text"
           />
           <input
             className={styles.inputs}
-            value={values.imageURL}
+            value={values.image_url}
             onChange={handleChange}
-            name="imageURL"
+            name="image_url"
             placeholder="Image URL"
             type="text"
           />
@@ -78,7 +89,7 @@ const AddRecipeForm = () => {
         <section className={styles.radio_btns_container}>
           <span className={styles.ind_radio_btn_container}>
             <input
-              name="type"
+              name="meal_type"
               value={"1"}
               onChange={handleChange}
               id="breakfast"
@@ -88,7 +99,7 @@ const AddRecipeForm = () => {
           </span>
           <span className={styles.ind_radio_btn_container}>
             <input
-              name="type"
+              name="meal_type"
               value={"2"}
               onChange={handleChange}
               id="lunch-dinner"
@@ -98,7 +109,7 @@ const AddRecipeForm = () => {
           </span>
           <span className={styles.ind_radio_btn_container}>
             <input
-              name="type"
+              name="meal_type"
               value={"3"}
               onChange={handleChange}
               id="snack"
@@ -108,7 +119,7 @@ const AddRecipeForm = () => {
           </span>
         </section>
         <section className={styles.type_container}>
-        <input
+          <input
             className={styles.inputs}
             value={values.calories}
             onChange={handleChange}
@@ -141,7 +152,6 @@ const AddRecipeForm = () => {
             type="text"
           />
         </section>
-
         <section className={styles.ing_quant_container}>
           <section className={styles.ing_quant_container_left}>
             <input
@@ -166,7 +176,11 @@ const AddRecipeForm = () => {
             ))}
           </ul>
         </section>
-        <button className={styles.add_btn} onClick={addIngredient}>
+        <button
+          type="button"
+          className={styles.add_btn}
+          onClick={addIngredient}
+        >
           Add Another Ingredient
         </button>
         <textarea
@@ -180,6 +194,7 @@ const AddRecipeForm = () => {
         <button className={styles.save_btn} type="submit">
           Save Recipe
         </button>
+        <div>{error && <div style={{color:'red'}}>{error}</div>}</div>
       </form>
     );
   };

@@ -126,7 +126,7 @@ const MealTable = () => {
   }, []);
 
   useEffect(() => {
-    axios.get("/recipes").then((res) => {
+    axios.get(`/recipes?userId=${state.userId}`).then((res) => {
       setRecipes(res.data);
     });
   }, []);

@@ -3,15 +3,15 @@ const express = require("express");
 const cors = require("cors");
 const app = express();
 
-const {SERVER_PORT} = process.env;
+const { SERVER_PORT } = process.env;
 
 const { seed } = require('./controllers/seed');
-const { getRecipes } = require("./controllers/recipes");
+const { getRecipes, addRecipe, deleteRecipe } = require("./controllers/recipes");
 const { login, register } = require("./controllers/auth");
 // const {isAuthenticated} = require("./middleware/isAuthenticated");
-const {addUserDetails, getUserDetails} = require("./controllers/userDetails")
+const { addUserDetails, getUserDetails } = require("./controllers/userDetails")
 
-const {getCurrentUserMeals, addUserMeals } = require("./controllers/userMeals");
+const { getCurrentUserMeals, addUserMeals } = require("./controllers/userMeals");
 
 app.use(express.json());
 app.use(cors());
@@ -20,8 +20,9 @@ app.post("/seed", seed);
 
 app.get('/recipes', getRecipes);
 
-// app.post("/recipes", isAuthenticated, addRecipe);
-// app.delete("/recipes/:id", isAuthenticated, deleteRecipes);
+app.post("/recipes", addRecipe);
+
+app.delete("/recipes/:user_id/:recipe_id", deleteRecipe);
 
 // app.get("/userrecipes/:userId", getCurrentUserRecipes);
 
