@@ -15,7 +15,7 @@ module.exports = {
                   
         CREATE TABLE users(
                 user_id SERIAL PRIMARY KEY,
-                username varchar (40) NOT NULL,
+                username varchar (50) NOT NULL,
                 password varchar (200) NOT NULL
             );
        
@@ -26,7 +26,7 @@ module.exports = {
           
         CREATE TABLE recipes(
                 recipe_id SERIAL PRIMARY KEY,
-                name varchar (40) NOT NULL,
+                name varchar (60) NOT NULL,
                 instructions text NOT NULL,
                 ingredients text NOT NULL,
                 calories integer NOT NULL,
@@ -40,15 +40,11 @@ module.exports = {
                 FOREIGN KEY(user_id) REFERENCES users(user_id)
             );
 
-        CREATE TABLE user_meals(
-                user_meal_id SERIAL PRIMARY KEY,
-                meal_type varchar (40) NOT NULL,
-                week_day integer NOT NULL, 
-                user_id integer,
-                recipe_id integer,
-                FOREIGN KEY (user_id) REFERENCES users (user_id),
-                FOREIGN KEY (recipe_id) REFERENCES recipes (recipe_id)
-            );
+            CREATE TABLE user_meals(
+              user_id integer PRIMARY KEY,
+              selections JSONB,
+              FOREIGN KEY (user_id) REFERENCES users (user_id)
+          );
 
         CREATE TABLE user_details(
                 user_detail_id SERIAL PRIMARY KEY,

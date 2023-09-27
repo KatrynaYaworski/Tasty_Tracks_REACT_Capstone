@@ -17,8 +17,8 @@ th, td {
   }
   
   .meal_table tr:hover td {
-    border-top: 1.9px dotted #1c9786;
-    border-bottom: 1.9px dotted #1c9786;
+    border-top: 2px dotted #1c9786;
+    border-bottom: 2px dotted #1c9786;
   }
 
   .meal_td_day_sticky{

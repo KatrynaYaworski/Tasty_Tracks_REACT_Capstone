@@ -3,6 +3,8 @@ import { useState, useContext } from "react";
 import WizardStepOne from "./WizardStepOne";
 import WizardStepTwo from "./WizardStepTwo";
 import WizardResults from "./WizardResults";
+import Modal from "../Modal/Modal";
+import Login from "../Login/Login";
 import styles from "./Wizard.module.css";
 import AuthContext from "../../store/authContext";
 import axios from "axios";
@@ -27,6 +29,15 @@ const WizardContainer = () => {
   const [carbs, setCarbs] = useState();
   const [fat, setFat] = useState();
   const [protein, setProtein] = useState();
+
+  const [isModalOpen, setModalOpen] = useState(false);
+  const openModal = () => {
+    setModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setModalOpen(false);
+  };
 
   console.log(
     `gender=${gender} 
@@ -160,13 +171,16 @@ const WizardContainer = () => {
       fat: fat,
       protein: protein,
     };
-    if(onStepThree){
+    if(onStepThree && state.token){
       console.log({body})
     axios.post("/user-details", body).then((res) => {
      
       navigate('/Meal Planner')
     }).catch(err => setError('Invalid entry'));
-    }else {
+    } else if(onStepThree){
+      openModal()
+    }    
+    else {
       goToNextStep()
     }
   };
@@ -225,6 +239,9 @@ const WizardContainer = () => {
           {onStepThree ? "Save Results" : onStepTwo ? "Calculate" : "Next"}
         </button>
       </div>
+      <Modal isOpen={isModalOpen} closeModal={closeModal}>
+          <Login isOpen={isModalOpen} closeModal={closeModal}/>
+        </Modal>
     </div>
   );
 };

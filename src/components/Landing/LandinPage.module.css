@@ -1,0 +1,106 @@
+.video{
+    width: 75%;
+}
+
+.container_video{
+    display: flex;
+    justify-content: center;
+   position: relative;
+    height: 60vh;
+    overflow: hidden;
+    width: 90%;
+    padding-left: 100px;
+}
+.hero_video_content{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    height: 10%;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    z-index: 5;
+    position: absolute;
+    top: 33%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding-left: 100px;
+}
+h1 {
+    font-size: 65px;
+    /* font-family: 'Manrope', sans-serif; */
+    color: rgba(255, 255, 255, 0.8);
+    z-index: 5;
+    margin-bottom: 10px;
+}
+h4 {
+    font-size: 30px;
+    /* font-family: 'Manrope', sans-serif; */
+    color: rgba(255, 255, 255, 0.8);
+    z-index: 5;
+    margin-bottom: 50px;
+}
+
+.get_started_btn{
+    font-size: xx-large;
+    border-radius: 8px;
+    padding: 10px;
+    border-color: transparent;
+    width: 15vw;
+    background-color: rgba(255, 255, 255, 0.5);
+    color: white;
+    cursor: pointer;
+    box-shadow: inset 0 0 0 0 rgb(58, 134, 134);
+    transition: color .3s ease-in-out, box-shadow .3s ease-in-out;
+}
+
+.get_started_btn:hover {
+    box-shadow: inset 15vw 0 0 0 rgb(41, 97, 84);
+    color: white;
+}
+i{
+    color: black;
+    size: 100px;
+}
+
+.how_it_works_container{
+    display: flex;
+    justify-content: center;
+    justify-content: space-between;
+    padding: 10px 250px;
+    text-align: center;
+}
+
+img{
+    height: 150px;
+}
+
+.how_it_works_text_container{
+    /* height: 250px;
+    width: 24%;
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    text-align: center; */
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.how_it_works_title{
+    display: inline-block;
+    font-weight: bolder;
+    font-size: larger;
+    font-family: 'Manrope', sans-serif;
+    width: 100%;
+    min-height: 30px;
+    color: rgb(100, 100, 100);
+}
+
+.how_it_works_description{
+    display: inline-block;
+    font-family: 'Mulish', sans-serif;
+    padding: 0 10%;
+    color: rgb(71, 70, 70);
+}

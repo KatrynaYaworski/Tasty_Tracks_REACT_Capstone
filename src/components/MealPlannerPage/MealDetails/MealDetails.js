@@ -1,7 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import styles from "./MealDetails.module.css";
 import Search from "../../RecipePage/Search";
 import FilterMacros from "../../RecipePage/FilterMacros";
+import AuthContext from "../../../store/authContext";
+import axios from "axios";
 
 const MealDetails = ({
   selectedKey,
@@ -17,15 +19,27 @@ const MealDetails = ({
     "protein",
     "fat",
   ];
+  const { state, dispatch } = useContext(AuthContext);
+  
   const onClickSelected = (recipeId) => {
     const selectedDaysCopy = [...selectedDays];
     selectedDaysCopy[index][selectedKey] = recipeId;
     setSelectedDays(selectedDaysCopy);
+    console.log({selectedDays})
+
+   const body = {
+      user_id: state.userId,
+      selections: selectedDays
+    }
+
+    axios.post("/usermeals", body)
   };
+
   const [searchRecipe, setSearchRecipe] = useState("");
   const [searchType, setSearchType] = useState(selectedKey);
   const [searchMacro, setSearchMacro] = useState("");
   const [direction, setDirection] = useState("ascending");
+  
   useEffect(() => {
     if (selectedKey.includes("snack")) {
       setSearchType("snack");

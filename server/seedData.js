@@ -1010,18 +1010,18 @@ module.exports = [
         image_url: 'https://lh3.googleusercontent.com/pw/AIL4fc-3aDrBi_7nchnarZk5uC7tSgPqdTUO5vQYLG5sd9ssd9uzqadulYoT8Wnr5ItTXtdNK3pDf0LX3X2UAUnVHL3gPPsWqHtiSFFBqyF_kUgsCvZ2q7nKdMCyf4qqzdrl6zYFvFpZxRxcVsMXZXYAcDoc=w320-h158-s-no?authuser=0',
         meal_id: 3
     },
-    {
-        recipe_name: 'Cacao Chia Seed Pudding(Makes 4 Servings)',
-        instructions: 'Place all ingredients into blender and blend on high for 1-2 minutes until completely smooth. Pour mixture into jar and refrigerate for 4 hours or overnight. Serve with a hand full of berries on top.',
-        ingredients: ['2 cups almond milk', '½ cup Chia Seeds', '½ teaspoon vanilla extract', '2 teaspoons stevia', '¼ teaspoon cinnamon powder', '¼ cup organic raw cacao powder', 'Hand full of berries'],
-        calories: 265,
-        carbs: 12,
-        fat: 9,
-        protein: 19,
-        image_url: 'https://lh3.googleusercontent.com/pw/AIL4fc83I6g_dO67m1TusTS6wmHYSCbVVmxvIb8JpniKM7BIdbdov_j0SK_Drvp-tewwblxacrKTyvmn38EnT9v-nJUxPV0f0wrwd_ggXCvUGviWrm2xemGqYy4GxCKJv6haR0UbJArgxBLVlwCpDHpA98Yq=w325-h220-s-no?authuser=0',
-        meal_id: 3
+    // {
+    //     recipe_name: 'Cacao Chia Seed Pudding(Makes 4 Servings)',
+    //     instructions: 'Place all ingredients into blender and blend on high for 1-2 minutes until completely smooth. Pour mixture into jar and refrigerate for 4 hours or overnight. Serve with a hand full of berries on top.',
+    //     ingredients: ['2 cups almond milk', '½ cup Chia Seeds', '½ teaspoon vanilla extract', '2 teaspoons stevia', '¼ teaspoon cinnamon powder', '¼ cup organic raw cacao powder', 'Hand full of berries'],
+    //     calories: 265,
+    //     carbs: 12,
+    //     fat: 9,
+    //     protein: 19,
+    //     image_url: 'https://lh3.googleusercontent.com/pw/AIL4fc83I6g_dO67m1TusTS6wmHYSCbVVmxvIb8JpniKM7BIdbdov_j0SK_Drvp-tewwblxacrKTyvmn38EnT9v-nJUxPV0f0wrwd_ggXCvUGviWrm2xemGqYy4GxCKJv6haR0UbJArgxBLVlwCpDHpA98Yq=w325-h220-s-no?authuser=0',
+    //     meal_id: 3
 
-    },
+    // },
     {
         recipe_name: 'Strawberry Greens Smoothie',
         instructions: 'Place all ingredients into blender and blend on high for 1-2 minutes until completely smooth',

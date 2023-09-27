@@ -1,17 +1,78 @@
 import React from "react";
+import video from "./video/compressed-video.mp4"
 import styles from "./LandinPage.module.css"
+import {useNavigate} from 'react-router-dom'
+import adaptImage from "./video/images/Adjust.png"
+import commitImage from "./video/images/Commit.png"
+import calculateImage from "./video/images/Calc.png"
+import calendarImage from "./video/images/Cal.png"
+import mealImage from "./video/images/Meal.png"
 
 const LandingPage=()=>{
+    const navigate = useNavigate()
     return(
-        <main>
-            <video 
-            id="video"
-            height="1080"
-            autoplay
+        <div>
+        <main className={styles.container_video}>
+            <video className={styles.video}
+            height="800"
+            width="1000"
+            autoPlay
             muted
             loop
-            src="/Images/pexels-alleksana-6107297 (1080p).mp4"></video>
+            src={video}
+            type="video/mp4"
+            ></video>
+            <section className={styles.hero_video_content}>
+            <div>
+                <h1>Tasty Tracks</h1>
+                <h4>Precision Nutrition, Tasty Results</h4>
+            </div>
+            <button onClick={()=>navigate('/Home')} className={styles.get_started_btn}>Get Started</button>
+            </section>
         </main>
+            <section className={styles.how_it_works_container}>
+                <span>
+                <img src={calculateImage} alt="" />
+                <div className={styles.how_it_works_text_container}>
+                    <span className={styles.how_it_works_title}>Calculate Daily Macros</span>
+                    <span className={styles.how_it_works_description}>Unlock Your Macros</span>
+                    <span className={styles.how_it_works_description}>Discover Your Daily Targets</span>
+                </div>
+                </span>
+                <span>
+                <img src={mealImage} alt="" />
+                <div className={styles.how_it_works_text_container}>
+                    <span className={styles.how_it_works_title}>Choose Your Meals</span>
+                    <span className={styles.how_it_works_description}>Explore Delicious Options</span>
+                    <span className={styles.how_it_works_description}>Craft Your Perfect Menu</span>
+                </div>
+                </span>
+                <span>
+                <img src={calendarImage} alt="" />
+                <div className={styles.how_it_works_text_container}>
+                    <span className={styles.how_it_works_title}>Create a Meal Plan</span>
+                    <span className={styles.how_it_works_description}>Design Your Daily Dining</span>
+                    <span className={styles.how_it_works_description}>Craft a Culinary Calendar</span>
+                </div>
+                </span>
+                <span>
+                <img src={adaptImage} alt="" />
+                <div className={styles.how_it_works_text_container}>
+                    <span className={styles.how_it_works_title}>Adapt and Adjust</span>
+                    <span className={styles.how_it_works_description}>Fine-Tune Your Food Journey</span>
+                    <span className={styles.how_it_works_description}>Personalize Your Plate</span>
+                </div>
+                </span>
+                <span>
+                <img src={commitImage} alt="" />
+                <div className={styles.how_it_works_text_container}>
+                    <span className={styles.how_it_works_title}>Commit to Results</span>
+                    <span className={styles.how_it_works_description}>Stay Committed, See Results</span>
+                    <span className={styles.how_it_works_description}>Embrace Your Transformation</span>
+                </div>
+                </span>
+            </section>
+        </div>
     );
 }
 

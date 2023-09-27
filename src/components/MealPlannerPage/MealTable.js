@@ -4,60 +4,79 @@ import AuthContext from "../../store/authContext";
 import axios from "axios";
 import Modal from "../Modal/Modal";
 import MealDetails from "../MealPlannerPage/MealDetails/MealDetails";
+import Loading from "../Loading/Loading";
+import LoginMessage from "../Modal/LoginMessage/LoginMessage";
+import Login from "../Login/Login";
 
 const dummySelectedDays = [
   {
-    breakfast: 1,
-    lunch: 2,
-    dinner: 3,
-    snackOne: 4,
-    snackTwo: 5,
+    breakfast: 0,
+    lunch: 0,
+    dinner: 0,
+    snackOne: 0,
+    snackTwo: 0,
   },
   {
-    breakfast: 6,
-    lunch: 7,
-    dinner: 8,
-    snackOne: 9,
-    snackTwo: 10,
+    breakfast: 0,
+    lunch: 0,
+    dinner: 0,
+    snackOne: 0,
+    snackTwo: 0,
   },
   {
-    breakfast: 6,
-    lunch: 7,
-    dinner: 8,
-    snackOne: 9,
-    snackTwo: 10,
+    breakfast: 0,
+    lunch: 0,
+    dinner: 0,
+    snackOne: 0,
+    snackTwo: 0,
   },
   {
-    breakfast: 6,
-    lunch: 7,
-    dinner: 8,
-    snackOne: 9,
-    snackTwo: 10,
+    breakfast: 0,
+    lunch: 0,
+    dinner: 0,
+    snackOne: 0,
+    snackTwo: 0,
   },
-  {
-    breakfast: 6,
-    lunch: 7,
-    dinner: 8,
-    snackOne: 9,
-    snackTwo: 10,
-  },
-  {
-    breakfast: 6,
-    lunch: 7,
-    dinner: 8,
-    snackOne: 9,
-    snackTwo: 10,
-  },
+    {
+      breakfast: 0,
+      lunch: 0,
+      dinner: 0,
+      snackOne: 0,
+      snackTwo: 0,
+    },
+    {
+      breakfast: 0,
+      lunch: 0,
+      dinner: 0,
+      snackOne: 0,
+      snackTwo: 0,
+    }, 
+    {
+      breakfast: 0,
+      lunch: 0,
+      dinner: 0,
+      snackOne: 0,
+      snackTwo: 0,
+    },
 ];
 
 const MealTable = () => {
   const [results, setResults] = useState();
   const [recipes, setRecipes] = useState();
   const [isModalOpen, setModalOpen] = useState(false);
+  const [isLogInMessageModalOpen, setLogInMessageModalOpen] = useState(true);
   const [selectedIndex, setSelectedIndex] = useState();
   const [selectedKey, setSelectedKey] = useState();
   const [selectedDays, setSelectedDays] = useState(dummySelectedDays);
   const totalsRef = useRef({});
+
+  const openLogInMessageModal = () => {
+    setLogInMessageModalOpen(true);
+  };
+
+  const closeLogInMessageModal = () => {
+    setLogInMessageModalOpen(false);
+  };
 
   const openModal = (index, key) => {
     setSelectedKey(key);
@@ -90,6 +109,15 @@ const MealTable = () => {
     "Saturday",
     "Sunday",
   ];
+
+  useEffect(()=>{
+    if(state.userId){
+      axios.get(`/usermeals/${state.userId}`).then((res)=>{
+        setSelectedDays(res.data)
+        console.log(res.data)
+    }).catch((e)=>console.log(e))
+    }
+  },[state.userId])
 
   useEffect(() => {
     axios.get(`/user-details/${state.userId}`).then((res) => {
@@ -138,7 +166,10 @@ const MealTable = () => {
       .reverse()
       .map((key, i) => {
         return (
-          <td className={styles.cells} onClick={() => openModal(index, key)}>
+          <td style={{cursor: i < 5 ? 'pointer' : ''}} className={styles.cells} 
+          onClick={() =>{ 
+            if(i<5){
+            openModal(index, key)}}}>
             {getValue(accessor, i, key)}
           </td>
         );
@@ -146,7 +177,12 @@ const MealTable = () => {
       .reverse();
   };
   //['', '', '', 'breakfast', 'snackOne', 'lunch', 'snackTwo', 'dinner']
-  if (recipes && results) {
+  if(!state.token){
+    return(
+        <LoginMessage><Login/></LoginMessage>
+    )
+  }
+  else if (recipes && results) {
     return (
       <div>
         <div className={styles.meal_planner_title_container}>
@@ -204,10 +240,13 @@ const MealTable = () => {
             index={selectedIndex}
           />
         </Modal>
+        
       </div>
     );
   } else {
-    return <div>loading</div>;
+    return (<div>
+      <Loading/>
+    </div>)
   }
 };
 

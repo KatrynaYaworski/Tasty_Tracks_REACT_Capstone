@@ -5,7 +5,7 @@ main {
     flex-direction: column;
     font-family: 'Montserrat', sans-serif;
     width: 25vw;
-    height: 45vh;
+    /* height: 45vh; */
 }
 .login_header{
     font-size: x-large;

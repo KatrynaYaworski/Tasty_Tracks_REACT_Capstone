@@ -8,7 +8,7 @@ const Home = () => {
       <div className={styles.home}>
         <WizardContainer/>
         <div className={styles.home_steps_container}>
-            <div>HOW IT WORKS?</div>
+            <div className={styles.how_it_works_title}>HOW IT WORKS?</div>
             <p>1. Select the gender, activity level and enter your age.</p>
             <p>2. Enter your height, weight and select your goal.</p>
             <p>3. Hit the Calculate button to see the result.</p>

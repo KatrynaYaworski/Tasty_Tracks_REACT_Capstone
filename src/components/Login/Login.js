@@ -21,6 +21,9 @@ const Login = ({ closeModal }) => {
     if(register && password !== confirmedPassword){
       setError("Passwords Do not match")
       return
+    } if(username === '' || password === ''){
+      setError("Must enter all fields")
+      return
     }
     axios
       .post(register ? "/register" : "/login", body)

@@ -27,9 +27,10 @@
     border-radius: 6px;
     padding: 5px 10px;
     width: 120px;
-    height: 30px;
+    height: 40px;
     color: white;
     font-weight: bolder;
+    font-size: large;
     cursor: pointer;
     box-shadow: inset  #1c9786; 
     transition: color .1s ease-in-out, box-shadow .2s ease-in-out;
@@ -37,7 +38,7 @@
 
 .next_btn:hover{
     box-shadow: inset 200px 0 0 0 #3A8686;
-      color: white;
+    color: white;
 }
 
 .previous_btn{
@@ -46,9 +47,10 @@
     border-radius: 6px;
     padding: 5px 10px;
     width: 120px;
-    height: 30px;
+    height: 40px;
     color: white;
     font-weight: bolder;
+    font-size: large;
     cursor: pointer;
     box-shadow: inset  #1c9786; 
     transition: color .1s ease-in-out, box-shadow .2s ease-in-out;
@@ -73,7 +75,7 @@
 
 }
 .w_so_top_container section{
-    font-size: 15px;
+    font-size: 18px;
     padding: 20px 0 6px 0 ;
 }
 .w_so_radio_btns_container{
@@ -91,7 +93,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 8px 6px;
+  padding: 15px 10px;
   border: #dcdbdb;
   transition: all 0.3s;
   background-color: #dbdbdb;
@@ -99,7 +101,7 @@
   border-radius: 6px;
   width: 59px;
   cursor: pointer;
-  font-size: x-small;
+  font-size: medium;
   font-weight: bolder;
   margin-right: 10px;
 }
@@ -107,7 +109,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 8px 6px;
+    padding: 15px 10px;
     transition: all 0.3s;
     border: #1c9786;
     background-color: #1c9786;
@@ -115,7 +117,7 @@
     border-radius: 6px;
     width: 59px;
     cursor: pointer;
-    font-size: x-small;
+    font-size: medium;
     font-weight: bolder;
     margin-right: 10px;
   }
@@ -141,38 +143,36 @@
 .w_so_top_right_container input{
     border: 2px solid rgb(220, 218, 218);
     border-radius: 6px;
-    padding: 5px;
-    font-size: small;
+    padding: 10px;
+    font-size: medium;
     width: 10.5vw;
+    color: #1c9786;
+    outline: rgb(220, 218, 218);
 }
 
 
 .w_so_top_right_container input:focus{
-    outline: rgb(220, 218, 218);
-
+    outline: #3A8686;
 }
-
-
-
 
 .w_so_bottom_container{
     display: flex;
     flex-direction: column;
-    padding: 0 20px;
+    padding: 2px 20px;
 }
 
 .w_so_activity_title{
-    font-size: 15px;
+    font-size: 18px;
     padding: 20px 0 6px 0 ;
 }
 
 .w_so_activity_container select{
     width: 32.5vw;
     border-radius: 6px;
-    padding: 5px;
+    padding: 10px;
     border-color: rgb(220, 218, 218);
     border-width: 2px;
-    font-size: small;
+    font-size: medium;
     color: #1DA491;
     font-weight: 540;
 }
@@ -202,10 +202,11 @@
 .w_st_section{
     font-size: 15px;
     padding: 20px 0 6px 0 ;
+    font-size: 18px;
 }
 
 .w_st_goal_title{
-    font-size: 15px;
+    font-size: 18px;
     padding: 20px 0 6px 0 ;
 }
 
@@ -214,21 +215,32 @@
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
     border-bottom-left-radius: 6px;
-    padding: 5px;
+    padding: 8.5px;
     border: 2px solid rgb(220, 218, 218);
-    font-size: small;
+    font-size: medium;
+    color: #1c9786;
 }
 #w_st_input_weight{
     width: 28.5vw;
+    color: #1c9786;
 }
 #w_st_input_inches{
     width: 10.5vw;
+    color: #1c9786;
 }
 #w_st_input_feet{
     width: 10.5vw;
+    color: #1c9786;
 }
 
+/* #w_st_input_weight:focus{
+    outline: rgb(220, 218, 218);
 
+}
+.w_st_input_feet:focus{
+    outline: rgb(220, 218, 218);
+
+} */
 .w_st_input:focus{
     outline: rgb(220, 218, 218);
 
@@ -248,10 +260,10 @@
 .w_st_bottom_container select{
     width: 15vw;
     border-radius: 6px;
-    padding: 5px;
+    padding: 10px;
     border-color: rgb(220, 218, 218);
     border-width: 2px;
-    font-size: small;
+    font-size: medium;
     color: #1DA491;
     font-weight: 540;
 }
@@ -266,7 +278,7 @@
     border-bottom-right-radius: 6px;
     border: 2px solid rgb(220, 218, 218);
     border-left: none;
-    padding: 3px;
+    padding: 8.5px;
     background-color: rgb(234, 233, 233);
     color: #1c9786;
     font-weight: 400;
