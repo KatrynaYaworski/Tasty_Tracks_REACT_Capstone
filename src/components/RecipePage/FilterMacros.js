@@ -55,8 +55,9 @@ const FilterMacros = ({setSearchMacro, searchMacro, setDirection, direction}) =>
                 checked={direction === "ascending"}
                 name="setDirectionAscending"
                 value="ascending"
+                
               />
-              <label id={styles.sort_label} htmlFor="ascending">
+              <label id={styles.sort_label}  style={{  minWidth: '5px' }} htmlFor="ascending">
                 <i
                   className="fa-solid fa-sort-up fa-bounce"
                   style={{ color: "#ffffff" }}
@@ -72,7 +73,7 @@ const FilterMacros = ({setSearchMacro, searchMacro, setDirection, direction}) =>
                 name="setDirectionDescending"
                 value="descending"
               />
-              <label id={styles.sort_label} htmlFor="descending">
+              <label id={styles.sort_label}  style={{  minWidth: '5px' }} htmlFor="descending">
                 <i
                   className="fa-solid fa-sort-down fa-bounce"
                   id={styles.search_icon}
@@ -90,7 +91,7 @@ const FilterMacros = ({setSearchMacro, searchMacro, setDirection, direction}) =>
             >
               <i
                 className="fa-solid fa-filter-circle-xmark"
-                style={{ color: "#ffffff" }}
+                style={{ color: "#ffffff", fontSize:"20px" }}
               ></i>
             </button>
           </div>

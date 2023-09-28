@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import styles from "./MealDetails.module.css";
 import Search from "../../RecipePage/Search";
 import FilterMacros from "../../RecipePage/FilterMacros";
+import FilterUserRecipes from "../../RecipePage/FilterUserRecipes";
 import AuthContext from "../../../store/authContext";
 import axios from "axios";
 
@@ -39,6 +40,8 @@ const MealDetails = ({
   const [searchType, setSearchType] = useState(selectedKey);
   const [searchMacro, setSearchMacro] = useState("");
   const [direction, setDirection] = useState("ascending");
+  const [userRecipe, setUserRecipe] = useState(null);
+  const [filter, setFilter] = useState(false);
   
   useEffect(() => {
     if (selectedKey.includes("snack")) {
@@ -49,12 +52,15 @@ const MealDetails = ({
   return (
     <div className={styles.meal_details_wrapper}>
       <Search setSearchRecipe={setSearchRecipe} searchRecipe={searchRecipe} />
+      <div className={styles.filter_details_container}> 
       <FilterMacros
         setSearchMacro={setSearchMacro}
         searchMacro={searchMacro}
         direction={direction}
         setDirection={setDirection}
       />
+        <FilterUserRecipes  setFilter={setFilter} filter={filter} userRecipe={userRecipe} setUserRecipe={setUserRecipe}/>
+        </div>
     <table className={styles.meal_table}>
     <thead>
         <tr>
@@ -110,9 +116,10 @@ const MealDetails = ({
               let title = recipe.name.toLowerCase();
               let type = recipe.meal_type.toLowerCase();
               let searchRecipeParams = searchRecipe.toLowerCase();
+              let user_id = recipe.user_id;
 
               return (
-                title.includes(searchRecipeParams) && type.includes(searchType)
+                title.includes(searchRecipeParams) && type.includes(searchType) && filter === false ? user_id === userRecipe : type.includes(searchType)
               );
             })
             .sort((a, b) => {

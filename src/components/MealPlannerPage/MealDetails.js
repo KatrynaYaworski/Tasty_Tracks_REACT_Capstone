@@ -3,6 +3,7 @@ import styles from "./Meals.module.css";
 import Search from "../RecipePage/Search";
 import FilterMacros from "../RecipePage/FilterMacros";
 
+
 const MealDetails = ({
   selectedKey,
   index,
@@ -26,6 +27,7 @@ const MealDetails = ({
   const [searchType, setSearchType] = useState(selectedKey);
   const [searchMacro, setSearchMacro] = useState("");
   const [direction, setDirection] = useState("ascending");
+  const [userRecipe, setUserRecipe] = useState(null);
   useEffect(() => {
     if (selectedKey.includes("snack")) {
       setSearchType("snack");
@@ -35,6 +37,7 @@ const MealDetails = ({
   return (
     <div className={styles.meal_details_wrapper}>
       <Search setSearchRecipe={setSearchRecipe} searchRecipe={searchRecipe} />
+    
       <FilterMacros
         setSearchMacro={setSearchMacro}
         searchMacro={searchMacro}
@@ -69,7 +72,7 @@ const MealDetails = ({
             })
             .map((r) => (
               <tr>
-                <td onClick={() => onClickSelected(r.recipe_id)}>{r.name}</td>
+                <td style={{cursor: 'pointer'}} onClick={() => onClickSelected(r.recipe_id)}>{r.name}</td>
               </tr>
             ))}
         </tbody>

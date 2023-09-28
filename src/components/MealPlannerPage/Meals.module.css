@@ -10,10 +10,14 @@ th, td {
     box-shadow: rgba(0, 0, 0, 0.4) 8px 8px 4px;
     background-color: white;
     text-align: center;
+    color: grey;
 }
-/* TABLE ROW HOVER EFFECTS */
-.meal_table td:hover {
-    background-color: #f0f0f0; /* Change the background color when hovered */
+
+.cells{
+    color: grey;
+}
+.cells:hover {
+    background-color: #f0f0f0;
   }
   
   .meal_table tr:hover td {
@@ -115,6 +119,4 @@ th {
     overflow-y:scroll;
     width: 75%;
 }
-.cells{
-    color: grey;
-}
+

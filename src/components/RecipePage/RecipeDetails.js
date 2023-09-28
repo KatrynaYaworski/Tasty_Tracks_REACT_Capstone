@@ -50,13 +50,14 @@ const RecipeDetails = ({ recipe }) => {
       </section>
 
       <div id={styles.modal_bottom_container}>
-        <span id={styles.modal_ingredients}>
-          Ingredients: {recipe.ingredients}
+        <span className={styles.modal_ingredients}>
+        <div className={styles.modal_title}>Ingredients</div> {recipe.ingredients}
         </span>
       </div>
       <div id={styles.modal_bottom_container}>
-        <span id={styles.modal_ingredients}>
-          Instructions: {recipe.instructions}
+        <span className={styles.modal_ingredients}>
+          <div className={styles.modal_title}>Instructions</div>
+           {recipe.instructions}
         </span>
       </div>
     </div>

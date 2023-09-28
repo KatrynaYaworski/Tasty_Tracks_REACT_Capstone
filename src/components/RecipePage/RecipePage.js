@@ -6,6 +6,7 @@ import styles from "./Recipe.module.css";
 import Search from "./Search";
 import FilterMealTypes from "./FilterMealTypes";
 import FilterMacros from "./FilterMacros";
+import FilterUserRecipes from "./FilterUserRecipes";
 import Modal from "./RecipeModal/RecipeModal"
 import AddRecipeForm from "./AddRecipeForm";
 import AuthContext from '../../store/authContext'
@@ -18,6 +19,7 @@ const RecipePage = () => {
   const [searchMacro, setSearchMacro] = useState("");
   const [userRecipe, setUserRecipe] = useState(null);
   const [direction, setDirection] = useState("ascending");
+  const [filter, setFilter] = useState(false);
 
   const [isModalOpen, setModalOpen] = useState(false);
   const openModal = () => {
@@ -41,15 +43,10 @@ console.log(recipes)
         recipe.sortWeight = 1;
       }
       return (
-        title.includes(searchRecipeParams) && type.includes(searchTypeParams)
+        title.includes(searchRecipeParams) && type.includes(searchTypeParams) && filter === false ? user_id === userRecipe : type.includes(searchTypeParams)
       );
     })
     .sort((a, b) => {
-
-       if(userRecipe !== null){
-       if (a.sortWeight !== b.sortWeight) {
-        return a.sortWeight - b.sortWeight;
-      }
     
       if (direction === "descending") {
         if (searchMacro === "calories") {
@@ -72,7 +69,6 @@ console.log(recipes)
           return b.carbs - a.carbs;
         }
       }
-    } else{
       if (direction === "descending") {
         if (searchMacro === "calories") {
           return a.calories - b.calories;
@@ -94,7 +90,7 @@ console.log(recipes)
           return b.carbs - a.carbs;
         }
       }
-    }
+
       return a.name.localeCompare(b.name);
     })
     .map((recipe) => {
@@ -119,38 +115,7 @@ function getRecipes () {
       <div className={styles.filters_wrapper}>
         <FilterMealTypes setSearchType={setSearchType} searchType={searchType}/>
         <FilterMacros setSearchMacro={setSearchMacro} searchMacro={searchMacro} direction={direction} setDirection={setDirection}/>     
-        <div className={styles.filter_container}>
-          <div className={styles.filter_radio_btns_container}>
-            <input
-              onChange={(e) => setUserRecipe(e.target.value)}
-              type="radio"
-              id="user"
-              checked={userRecipe !== null}
-              name="searchUserRecipe"
-              value={state.userId}
-            />
-            <label htmlFor="user">My Recipes</label>
-            {/* <input
-              onChange={(e) => setUserRecipe(e.target.value)}
-              type="radio"
-              id='notUser'
-              checked={userRecipe === null}
-              name="searchUserRecipe"
-              value={null}
-            />
-            <label htmlFor="notUser">Default Recipes</label> */}
-            <button
-              className={styles.filter_btn}
-              onClick={() => setUserRecipe(null)}
-            >
-              <i
-                className="fa-solid fa-filter-circle-xmark"
-                style={{ color: "#ffffff" }}
-              ></i>
-            </button>
-          </div>
-        </div>
-        
+        {state.token ? <FilterUserRecipes  setFilter={setFilter} filter={filter} userRecipe={userRecipe} setUserRecipe={setUserRecipe}/> : ''}
        {state.token ? <button onClick={openModal} className={styles.addnew_btn}>ADD NEW RECIPE</button> : '' } 
       </div>
       <div className={styles.recipe_container}>{recipeDisplay}</div>

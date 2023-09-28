@@ -7,9 +7,28 @@
 }
 .table_container{
     max-height: 50vh;
+    min-height: 40vh;
     overflow-y:scroll;
     width: 75%;
 }
 .cells{
     color: grey;
 }
+
+.filter_details_container{
+    display: flex;
+    justify-content: space-between;
+    width: 75%;
+}
+.meal_table tr:hover td {
+    border-top: 2px dotted #1c9786;
+    border-bottom: 2px dotted #1c9786;
+  }
+
+  .details_recipe_name{
+    background-color: grey;
+  }
+
+  .details_recipe_name:hover{
+    background-color: grey;
+  }

@@ -154,7 +154,8 @@ const MealTable = () => {
         }
         totalsRef.current[index][accessor].total = total;
         totalsRef.current[index][accessor].totalPercent = totalPercent;
-        return totalPercent;
+        const isVarianceOff = totalPercent <85 || totalPercent > 110;
+        return <span style={{color: isVarianceOff ? '#ce0000df' : 'none', fontWeight: isVarianceOff ? "bold" : 'none'}}>{totalPercent}%</span> 
       } else if (i === 6 && accessor !== "name") {
         return total;
       } else {
@@ -166,7 +167,7 @@ const MealTable = () => {
       .reverse()
       .map((key, i) => {
         return (
-          <td style={{cursor: i < 5 ? 'pointer' : ''}} className={styles.cells} 
+          <td style={{cursor: i < 5 ? 'pointer' : ''}} className={ i < 5 ? styles.cells : styles.total_cells} 
           onClick={() =>{ 
             if(i<5){
             openModal(index, key)}}}>

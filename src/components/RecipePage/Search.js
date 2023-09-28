@@ -26,7 +26,7 @@ const Search = ({searchRecipe, setSearchRecipe}) => {
         >
           <i
             className="fa-solid fa-filter-circle-xmark"
-            style={{ color: "#ffffff" }}
+            style={{ color: "#ffffff", fontSize:"25px" }}
           ></i>
         </button>
       </span>

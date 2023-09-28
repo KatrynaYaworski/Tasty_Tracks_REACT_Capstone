@@ -38,7 +38,7 @@ const FilterMealTypes = ({searchType, setSearchType}) => {
             >
               <i
                 className="fa-solid fa-filter-circle-xmark"
-                style={{ color: "#ffffff" }}
+                style={{ color: "#ffffff", fontSize:"20px" }}
               ></i>
             </button>
           </div>

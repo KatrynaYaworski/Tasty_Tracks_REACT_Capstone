@@ -128,9 +128,10 @@
   background-color: #dbdbdb;
   color: rgb(138, 137, 137);
   border-radius: 6px;
-  width: 79px;
+  min-width: 100px;
+  width: fit-content;
   cursor: pointer;
-  font-size: small;
+  font-size: large;
   font-weight: bolder;
   margin-right: 10px;
 }
@@ -144,9 +145,10 @@
     background-color: #1c9786;
     color: rgb(255, 255, 255);
     border-radius: 6px;
-    width: 80px;
+    min-width: 100px;
+    width: fit-content;
     cursor: pointer;
-    font-size: small;
+    font-size: large;
     font-weight: bolder;
     margin-right: 10px;
   }
@@ -168,10 +170,47 @@
     color: white;
     cursor: pointer;
 }
+.user_filter_input{
+}
+.user_filter_label:hover{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 8px;
+    transition: all 0.3s;
+    border: #1c9786;
+    background-color: #1c9786;
+    color: rgb(255, 255, 255);
+    border-radius: 6px;
+    min-width: 100px;
+    width: fit-content;
+    cursor: pointer;
+    font-size: large;
+    font-weight: bolder;
+    margin-right: 10px;
+}
+
+.user_filter_label{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 8px;
+    border: #dcdbdb;
+    transition: all 0.3s;
+    background-color: #dbdbdb;
+    color: rgb(138, 137, 137);
+    border-radius: 6px;
+    min-width: 100px;
+    width: fit-content;
+    cursor: pointer;
+    font-size: large;
+    font-weight: bolder;
+    margin-right: 10px;
+}
 
 .filter_btn{
     border: none;
-    border-radius: 22px;
+    border-radius: 30px;
     padding: 10px;
     background-color: #1c9786;
     cursor: pointer;
@@ -201,7 +240,8 @@
   }
   
   .search_input {
-    padding: 10px 30px 10px 10px; 
+    font-size: large;
+    padding: 15px; 
     border: 1px solid #ccc;
     border-radius: 20px;
     outline: none;
@@ -217,18 +257,18 @@
     padding: 0 15px;
     background-color: transparent;
     border: none;
+    font-size: large;
 }
   
 #sort_label{
     width: 5px;
-    height: 1px;
-    /* margin: 5px 5px 5px 0; */
+    height: 5px;
+    margin-right: 5px;
 }
 
 .filters_wrapper{
     display: flex;
     align-items: center;
-    width: 100vw;
     height: 25px;
     margin-top: 20px;
     justify-content: center;
@@ -240,10 +280,11 @@
     border: none;
     border-radius: 6px;
     padding: 5px 10px;
-    width: 150px;
-    height: 30px;
+    width: 180px;
+    height: 40px;
     color: white;
     font-weight: bolder;
+    font-size: large;
     cursor: pointer;
     box-shadow: inset  #1c9786; 
     transition: color .1s ease-in-out, box-shadow .2s ease-in-out;
@@ -304,7 +345,7 @@
     font-size: x-large;
     color: rgb(80, 80, 80);
     margin: 5px 5px;
-    max-width: 300px;
+    /* max-width: 300px; */
     font-weight: bolder;
 }
 
@@ -364,6 +405,7 @@
 }
 #nutrients_container{
   font-family: 'Mulish', sans-serif;
+  margin-top: -40px;
 }
 
 .nutrients{
@@ -375,8 +417,9 @@
 
 .recipe_details_r_title{
     font-family: 'Manrope', sans-serif;
-    color: rgb(162, 162, 162);
-    height: 20%;
+    color: #1c9786;
+    margin-top: 18px;
+    /* height: 10%; */
 }
 
 #modal_bottom_container{
@@ -386,8 +429,17 @@
     margin-top: 15px;
 }
 
-#modal_ingredients{
+.modal_ingredients{
     font-family: 'Mulish', sans-serif;
+    
+}
+
+.modal_title{
+    font-family: 'Mulish', sans-serif;
+    color: #1c9786;
+    font-size: large;
+    font-weight: 600;
+    padding-bottom: 5px;
 }
 
 
