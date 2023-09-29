@@ -9,6 +9,13 @@ const Home = () => {
       behavior: 'smooth', // Add smooth scrolling behavior
     });
   }
+  const scrollTo = (id) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+  
   return (
     <div className={styles.home_body}>
       <div className={styles.home}>
@@ -26,62 +33,44 @@ const Home = () => {
             <div className={styles.TOC_title}> Table of Contents</div>
           </div>
           <ul>
-            <li>How to use macro calculator to calculate your macro?</li>
-            <li>What are Macros (IIFYM) or Macronutrients??</li>
-            <li>What are the advantages of using our macro calculator?</li>
+            <li><button className={styles.TOC_btn} onClick={() => scrollTo('section1')} href="section1">How to use macro calculator to calculate your macro?</button></li>
+            <li><button className={styles.TOC_btn} onClick={() => scrollTo('section2')} href="#section2">What are Macros (IIFYM) or Macronutrients?</button></li>
+            <li><button className={styles.TOC_btn} onClick={() => scrollTo('section3')} href="#section3">What are the advantages of using our macro calculator?</button></li>
           </ul>
         </div>
       </div>
       <div className={styles.faq_container}>
         <div className={styles.faq_inner_container}>
           <p>
-            Our free macro calculator is an online customized tool that
-            calculates your nutrients intake and provides you real-time diet
-            plans.
+          Our advanced macro calculator is your personalized solution for effortlessly calculating your nutrient intake and receiving real-time diet plans.
           </p>
+          <h2 id="section1">How to use macro calculator to calculate your macros?</h2>
           <p>
-            It is a complete package that takes care of your health and dietary
-            issues.
-          </p>
-          <h2>How to use macro calculator to calculate your macros?</h2>
-          <p>
-            Our tool is highly customized and user-oriented. Its mode of
-            operation is very simple and easy.
-          </p>
-          <p>
-            This tool contains three steps, and after completion of these steps,
-            it provides you the results in an instant.
+            With a simple three-step process, our user-friendly tool delivers instant and accurate results tailored to your unique requirements.
           </p>
           <h4 className={styles.faq_steps}>Step 1</h4>
           <p>Select your gender, activity level and enter your age.</p>
-          <h4 className={styles.faq_steps}>Step 1</h4>
+          <h4 className={styles.faq_steps}>Step 2</h4>
           <p>
             Enter the measurements of your weight and height and select your
             goal.
           </p>
-          <h4 className={styles.faq_steps}>Step 1</h4>
+          <h4 className={styles.faq_steps}>Step 3</h4>
           <p>
             Click "Calculate" to get the whole plan that includes per day values
             of your macros and calories
           </p>
 
-          <h2>What are Macros (IIFYM) or Macronutrients?</h2>
+          <h2 id="section2">What are Macros (IIFYM) or Macronutrients?</h2>
           <p>
-            Macros are the major biochemical compounds that you take into your
-            diet. Your diet is majorly composed of these nutrients as they are
-            the most essential ones in a whole lot of compounds.
+          Macronutrients, commonly known as macros, are fundamental biochemical compounds that constitute a significant portion of your diet. These essential nutrients play a vital role in various physiological processes within the body.
           </p>
           <p>
-            Our physical body needs a regular diet to sustain and nourish, and
-            these nutrients are present in food to cope with the needs of energy
-            and maintenance of the body.
+          For your body to function optimally and maintain overall well-being, it requires a consistent intake of these macronutrients. They serve as the building blocks for energy production and support the body's maintenance and growth.
           </p>
           <p>
-            Hence, you cannot remain healthy and sound without proper intake of
-            these food components. Therefore, a balanced approach to a proper
-            diet plan is necessary for your well-being.
+          A balanced and thoughtful approach to your diet is crucial for sustaining good health. The primary macronutrients include carbohydrates, proteins, and fats, each contributing uniquely to your nutritional needs. Embracing a well-rounded diet plan ensures that you meet these essential requirements for a healthier and more vibrant life.
           </p>
-          <p>These macros are carbohydrates, proteins, and fats.</p>
           <div className={styles.macro_boxes_container}>
             <div className={styles.box}>
               <div>
@@ -122,17 +111,15 @@ const Home = () => {
 
           <h3>Carbohydrates</h3>
           <p>
-            Carbohydrates are macromolecules formed by the combination of
-            carbon, hydrogen, and oxygen. They are extensively taken by us for
-            the proper functioning of the mind and body.
+          Carbohydrates are macromolecules composed of carbon, hydrogen, and oxygen. They play a crucial role in supporting the proper functioning of both the mind and body. These macronutrients are a vital component of our diet, providing essential energy for various bodily functions.
           </p>
           <p>Carbs in a Selection of Foods:</p>
-          <table>
+          <table className={styles.carb_table} style={{width: "100%", borderRadius:"12px"}} >
             <thead>
               <tr>
-                <th>Food</th>
-                <th>Carbs per (g)</th>
-                <th>Carbs per 100g</th>
+                <th style={{position: "relative"}}>Food</th>
+                <th style={{position: "relative"}}>Carbs per (g)</th>
+                <th style={{position: "relative"}}>Carbs per 100g</th>
               </tr>
             </thead>
             <tbody>
@@ -162,46 +149,35 @@ const Home = () => {
                 <td>23</td>
               </tr>
               <tr>
-                <td>Sugar (10oz)</td>
+                <td className={styles.bottom_td_left}>Sugar (10oz)</td>
                 <td>25</td>
-                <td>100</td>
+                <td className={styles.bottom_td_right}>100</td>
               </tr>
             </tbody>
           </table>
 
           <p>
-            Carbohydrates are abundantly found in fruits, vegetables, milk,
-            honey, sugary juices, etc. We use carbohydrates as the main energy
-            source owing to their benefits to different parts of the body.
+          Carbohydrates are found abundantly in fruits, vegetables, milk, honey, and sugary juices. They serve as the primary energy source due to their numerous benefits for different parts of the body.
           </p>
           <p>
-            Carbs provide energy to your whole system as in the case of cellular
-            respiration, the energy ATP is utilized by the body in this
-            phenomenon, as glucose which is essentially a carbohydrate is used
-            to produce ATP.
+          Carbs contribute to cellular respiration, where glucose, a carbohydrate, is used to produce ATP—the energy currency of the body. Adequate fiber intake, whether soluble or insoluble, promotes proper bowel function and helps prevent digestive tract diseases.
           </p>
           <p>
-            A reasonable number of fibers intake, soluble or insoluble makes
-            your bowel function properly. Moreover, studies show that these
-            fibers also prevent digestive tract diseases.
+          Moreover, carbohydrates provide immediate energy to the entire body, making them an essential component of a balanced and energizing diet.
           </p>
-          <p>Furthermore, carbs provide instant energy to your whole body.</p>
 
           <h3>Proteins</h3>
           <p>
-            These are the macronutrients formed by the polymerization of amino
-            acids. It means amino acids are joined together in the form of long
-            chains to form a protein molecule. They contain hydrogen, carbon,
-            oxygen, and nitrogen in the structure.
+          Proteins are macronutrients formed through the polymerization of amino acids, where amino acids are linked together in long chains to create protein molecules. The structure of proteins includes hydrogen, carbon, oxygen, and nitrogen.
           </p>
-          <p>Protein in a Selection of Foods:</p>
+          <p>Protein in Various Foods:</p>
 
-          <table>
+          <table className={styles.protein_table} style={{width: "100%", borderRadius:"12px"}} >
             <thead>
               <tr>
-                <th>Food</th>
-                <th>Protein Size</th>
-                <th>Protein Quanity</th>
+                <th style={{position: "relative"}}>Food</th>
+                <th style={{position: "relative"}}>Protein Size</th>
+                <th style={{position: "relative"}}>Protein Quanity</th>
               </tr>
             </thead>
             <tbody>
@@ -225,62 +201,36 @@ const Home = () => {
                 <td>8 oz</td>
                 <td>8</td>
               </tr>
-              <tr>
-                <td>Rice/Pasta</td>
+              <tr className={styles.bottom_tr}>
+                <td className={styles.bottom_td_left}>Rice/Pasta</td>
                 <td>1/3 cup</td>
-                <td>3</td>
+                <td className={styles.bottom_td_right}>3</td>
               </tr>
             </tbody>
           </table>
           <p>
-            Out of 20 amino acids, 9 are essential that cannot be produced by
-            your body, and you have to take them from different sources to meet
-            up the body’s protein needs. These amino acids are found in animal
-            meat such as chicken, fish, mutton, and beef as well as grains,
-            legumes, and species of their class.
+          Out of the 20 amino acids, 9 are essential, meaning the body cannot produce them and must obtain them from various sources to meet its protein requirements. These essential amino acids are found in animal meats such as chicken, fish, mutton, and beef, as well as in grains, legumes, and similar food sources.
           </p>
           <p>
-            The function and importance of protein cannot be denied due to the
-            fact that our body is composed of 16-20% proteins and cells are
-            based on protein material. However, there are several specific
-            functions of proteins
+          Proteins play a crucial role in the body, constituting about 16-20% of the body's composition, with cells being based on protein material. They serve various essential functions:
           </p>
-          <p>
-            They help in the growth and maintenance of the body, in building
-            muscles and tissues. Moreover, there Are a variety of different uses
-            of proteins. In case of injury or pregnancy, you should increase
-            your protein intake to recover from illness.
-          </p>
-          <p>
-            Besides, proteins also act as hormones such as testosterone,
-            insulin, and other important hormones that are necessary for the
-            messaging between cells across the body.
-          </p>
-          <p>
-            Proteins also catalyze the biochemical reactions in the body. In the
-            form of enzymes, they combine with other compounds to increase the
-            speed of your body’s metabolism.
-          </p>
-          <p>
-            These reactions are related to digestion, blood clotting, and energy
-            synthesis. Proteins also maintain the structure of your body such as
-            bones, tendons, and ligaments contain proteins.
-          </p>
+          <li>Proteins contribute to the growth and maintenance of the body, aiding in the development of muscles and tissues.</li>
+         <li>Increased protein intake is recommended during periods of injury or pregnancy to support recovery.</li>
+         <li>Proteins act as hormones, including testosterone, insulin, and other vital hormones that facilitate communication between cells throughout the body.</li>
+          <li>In the form of enzymes, proteins catalyze biochemical reactions, enhancing the speed of the body's metabolism. These reactions are involved in processes such as digestion, blood clotting, and energy synthesis.</li>
+          <li>Proteins contribute to the structural integrity of the body; components like bones, tendons, and ligaments contain proteins.</li>
 
           <h3>Fats</h3>
           <p>
-            Fats are made up of lipids, containing carbon, hydrogen, and oxygen.
-            These lipids are long-chain polymers of fatty acids. They can be
-            saturated or unsaturated, depending upon the presence of double
-            bonds in their structures.
+          Fats consist of lipids containing carbon, hydrogen, and oxygen. These lipids are long-chain polymers of fatty acids, and based on the presence of double bonds, fats can be categorized as saturated or unsaturated.
           </p>
-          <p>Fats in a Selection of Foods:</p>
-          <table>
+          <p>Fats in Various Foods:</p>
+          <table className={styles.fat_table} style={{width: "100%", borderRadius:"12px"}} >
             <thead>
               <tr>
-                <th>Oil</th>
-                <th>Mono Saturated</th>
-                <th>Saturated</th>
+                <th style={{position: "relative"}}>Oil</th>
+                <th style={{position: "relative"}}>Mono Saturated</th>
+                <th style={{position: "relative"}}>Saturated</th>
               </tr>
             </thead>
             <tbody>
@@ -295,67 +245,40 @@ const Home = () => {
                 <td>10</td>
               </tr>
               <tr>
-                <td>Butter Oil</td>
+                <td className={styles.bottom_td_left}>Butter Oil</td>
                 <td>26</td>
-                <td>60</td>
+                <td className={styles.bottom_td_right}>60</td>
               </tr>
             </tbody>
           </table>
           <p>
-            Saturated fats are solid at room temperature and found in foods
-            obtained from butter, cheese, and dairy products. In addition, these
-            fats are also found in some oils like palm oil, coconut oil, etc.
+          Saturated fats are solid at room temperature and are commonly found in foods derived from butter, cheese, and dairy products. Additionally, they are present in certain oils like palm oil and coconut oil.
           </p>
           <p>
-            Trans fats are formed by the artificial hydrogenation of oils to
-            solidify them. These fats are not good for health as they increase
-            cholesterol levels.
+          Trans fats are artificially created through the hydrogenation of oils to solidify them. These fats are considered detrimental to health as they raise cholesterol levels.
           </p>
           <p>
-            Unsaturated fats are best for dietary use, as they remain in a
-            liquid state at room temperature. That’s why they do not clog the
-            veins and do not increase blood pressure and cholesterol. They
-            include sunflower oil, canola oil, olive oil, etc.
+          Unsaturated fats are considered healthier for dietary purposes. They remain in a liquid state at room temperature, avoiding the clogging of veins and preventing increases in blood pressure and cholesterol. Examples of unsaturated fats include sunflower oil, canola oil, and olive oil.
           </p>
           <p>
-            Fats are essential for development, and as an energy source for the
-            brain. They are used to store vitamins A, E, D, and K in the fat
-            tissues. Besides, it provides insulation to your body from heat or
-            cold.
+          Fats play essential roles in development and serve as an energy source for the brain. They are also utilized to store fat-soluble vitamins A, E, D, and K in fat tissues. Additionally, fats provide insulation to the body against temperature extremes.
           </p>
-          <h2>
+          <h2 id="section3">
             What are the advantages of using Tasty Tracks Macro calculator?
           </h2>
-          <li>Analyze your nutritional factors</li>
-          <p>
-            With the help of our macro calculator, you can analyze your daily
-            nutritional values, your energy consumption, and your energy intake.
-          </p>
-          <p>
-            It is more like your account’s bank statement that describes your
-            cash deposit and withdrawal, similarly, with a macronutrient
-            calculator you can keep track of your nutrition factors.
-          </p>
-          <li>Lose weight faster</li>
-          <p>
-            Losing weight faster is relatively easy when utilizing an online
-            tool for macro calculation. This is because the calculator will help
-            you know how much diet you should have to reach your goal. You can
-            easily follow-up on the Macronutrients' requirements to intake and
-            lose the weight with the same activity level.
-          </p>
-          <li>Create a comprehensive diet plan</li>
-          <p>
-            Very often, people lose motivation while sticking to a diet plan
-            because they do not work out a comprehensive strategy to get started
-            with.
-          </p>
-          <p>
-            Nevertheless, our macro calculator helps you to get real values of
-            carbs, proteins, fats, and calorie intake that ultimately helps you
-            to develop a diet plan as you can use our macros calculator for
-            weight loss or gain.
-          </p>
+          <p>Nutritional Analysis:</p>
+          <li>
+          Utilize our macro calculator to thoroughly analyze your daily nutritional values, energy consumption, and intake. It acts like your account’s bank statement, offering a clear depiction of your nutritional deposits and withdrawals.
+          </li>
+          <p>Efficient Weight Loss:</p>
+          <li>
+          Achieving faster weight loss becomes more manageable with an online macro calculation tool. The calculator guides you on the required dietary intake to reach your weight goals. Easily track macronutrient requirements, ensuring efficient weight loss while maintaining your activity level.
+          </li>
+          <p>Comprehensive Diet Planning:</p>
+          <li>
+          Crafting and adhering to a diet plan can be challenging without a comprehensive strategy. Tasty Tracks Macro Calculator provides precise values for carbs, proteins, fats, and calorie intake. This information empowers you to develop a well-structured diet plan, whether your goal is weight loss or gain. Stay motivated with accurate insights from our macros calculator.
+          </li>
+        
         </div>
       </div>
       <div

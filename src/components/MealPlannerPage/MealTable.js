@@ -184,7 +184,7 @@ const MealTable = () => {
       .reverse()
       .map((key, i) => {
         return (
-          <td style={{cursor: i < 5 ? 'pointer' : ''}} className={ i < 5 ? styles.cells : styles.total_cells} 
+          <td id={styles.td} style={{cursor: i < 5 ? 'pointer' : ''}} className={ i < 5 ? styles.cells : styles.total_cells} 
           onClick={() =>{ 
             if(i<5){
             openModal(index, key)}}}>
@@ -210,7 +210,7 @@ const MealTable = () => {
           <table className={styles.meal_table}>
             <thead>
               <tr>
-                <th id={styles.blank_th}></th>
+                <th id={styles.blank_th} style={{backgroundColor: "#F2F7FA"}}></th>
                 {headers.map((e) => (
                   <th>{e}</th>
                 ))}
@@ -220,7 +220,7 @@ const MealTable = () => {
               {dayLabels.map((day, i) => (
                 <>
                   <tr>
-                    <td className={styles.meal_td_day}>{day}</td>
+                    <td  className={styles.meal_td_day}>{day}</td>
                     {formatRowData(["", "", "", ...mealKeys], "name", i)}
                   </tr>
                   <tr>
@@ -228,18 +228,18 @@ const MealTable = () => {
                     {formatRowData(["", "", "", ...mealKeys], "calories", i)}
                   </tr>
                   <tr>
-                    <td className={styles.meal_td}>Carbs</td>
-                    <td >{results.carbs}</td>
+                    <td  className={styles.meal_td}>Carbs</td>
+                    <td id={styles.td} >{results.carbs}</td>
                     {formatRowData(["", "", ...mealKeys], "carbs", i)}
                   </tr>
                   <tr>
-                    <td className={styles.meal_td}>Protein</td>
-                    <td >{results.protein}</td>
+                    <td  className={styles.meal_td}>Protein</td>
+                    <td id={styles.td} >{results.protein}</td>
                     {formatRowData(["", "", ...mealKeys], "protein", i)}
                   </tr>
                   <tr>
                     <td className={styles.meal_td}>Fat</td>
-                    <td >{results.fat}</td>
+                    <td id={styles.td} >{results.fat}</td>
                     {formatRowData(["", "", ...mealKeys], "fat", i)}
                   </tr>
                 </>

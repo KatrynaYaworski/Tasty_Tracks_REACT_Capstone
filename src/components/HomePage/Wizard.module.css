@@ -171,7 +171,7 @@
 }
 
 .w_so_activity_container select{
-    width: 32.5vw;
+    width: 33vw;
     border-radius: 6px;
     padding: 10px;
     border-color: rgb(220, 218, 218);
@@ -246,7 +246,7 @@
     color: #1c9786;
 }
 #w_st_input_weight{
-    width: 28.5vw;
+    width: 27.3vw;
     color: #1c9786;
 }
 #w_st_input_inches{
@@ -373,8 +373,5 @@
     top: -46px;
  }
 
- input:focus:-webkit-autofill {
-    background-color: transparent;
-  }
 
  

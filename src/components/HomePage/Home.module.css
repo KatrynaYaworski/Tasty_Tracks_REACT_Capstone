@@ -1,7 +1,7 @@
 .home {
     display: flex;
     justify-content: center;
-    width: 100vw;
+    /* width: 100vw; */
     gap: 80px;
     margin-top: 30px;
 
@@ -27,37 +27,40 @@
 
 .TOC_wrapper {
     display: flex;
-    width: 73%;
+    /* width: 100vw; */
     justify-content: center;
+    font-family: 'Mulish', sans-serif;
 }
-.faq_container{
+
+.faq_container {
     display: flex;
     /* justify-content: center; */
     align-items: center;
-    width: 100vw;
+    /* width: 100vw; */
     /* flex-direction: column; */
     text-wrap: wrap;
     flex-direction: column;
 }
 
-.faq_inner_container{
+.faq_inner_container {
     display: flex;
     /* align-items: center; */
-    width: 62vw;
+    width: 50vw;
     padding-left: 0px;
     /* flex-direction: column; */
     text-wrap: wrap;
     flex-direction: column;
+    font-family: 'Mulish', sans-serif;
 }
 
 .TOC_container {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     border: solid rgb(200, 200, 200);
     border-radius: 15px;
     border-width: 2px;
-    width: 35vw;
-    margin: 20px 0;
+    width: 50%;
+    margin: 70px 0 30px 0;
     padding: 25px 0;
     flex-direction: column;
     background-color: white;
@@ -67,26 +70,27 @@
     display: flex;
     align-items: flex-start;
     width: 75%;
+    margin-left: 50px;
 }
-
 
 .TOC_title {
     align-items: flex-start;
     font-size: x-large;
 }
 
-li {
+.TOC_container>ul>li {
     color: #1c9786;
-    font-size: large;
+    font-size: x-large;
     cursor: pointer;
+    margin-left: 150px;
 }
 
-li:hover {
+.TOC_container>ul>li:hover {
     text-decoration: underline;
     font-weight: bold;
 }
 
-.faq_steps{
+.faq_steps {
     display: inline-block;
     position: relative;
     background-size: contain;
@@ -100,15 +104,15 @@ li:hover {
     z-index: -1;
     top: 0;
     left: 0;
-    transform: translate(-5px,10px) rotate(45deg);
+    transform: translate(-5px, 10px) rotate(45deg);
     display: inline-block;
     width: 55px;
     height: 55px;
-    background-color: #5eb6a9;
+    background-image: linear-gradient(45deg, #48d3bc, #007a68);
     border-radius: 11px;
 }
 
-.box{
+.box {
     width: 30%;
     display: inline-block;
     background: #0a0a0a0a;
@@ -119,21 +123,22 @@ li:hover {
     margin-left: 8px;
 }
 
-.box div{
+.box div {
     display: flex;
     align-items: center;
     justify-content: center;
 
 }
-.scroll_to_top{
+
+.scroll_to_top {
     position: fixed;
     bottom: 20px;
     right: 20px;
     border-radius: 50%;
     color: #fff;
     padding: 16px;
-    background-image: linear-gradient(45deg,#48d3bc,#007a68);
-    box-shadow: 0 0 8px rgba(211,211,211,0.281);
+    background-image: linear-gradient(45deg, #48d3bc, #007a68);
+    box-shadow: 0 0 8px rgba(211, 211, 211, 0.281);
     width: 50px;
     cursor: pointer;
     height: 50px;
@@ -143,7 +148,97 @@ li:hover {
     transition: color .1s ease-in-out box-shadow .2s ease-in-out;
 }
 
-.scroll_to_top:hover{
+.scroll_to_top:hover {
     box-shadow: inset 100px 0 0 0 #3A8686;
     color: white;
+}
+
+.protein_table {
+    background: #1fa491;
+    border-radius: 12px;
+    padding: 0 5px 5px;
+    width: 100%;
+    max-width: 100%;
+    border-spacing: 0;
+    text-align: center;
+}
+
+.protein_table>thead {
+    text-align: left;
+    color: #fff;
+    font-size: 20px;
+}
+
+.fat_table {
+    background: #1fa491;
+    border-radius: 12px;
+    padding: 0 5px 5px;
+    width: 100%;
+    max-width: 100%;
+    border-spacing: 0;
+    text-align: center;
+}
+.fat_table>thead {
+    text-align: left;
+    color: #fff;
+    font-size: 20px;
+}
+
+.carb_table {
+    background: #1fa491;
+    border-radius: 12px;
+    padding: 0 5px 5px;
+    max-width: 100%;
+    border-spacing: 0;
+    text-align: center;
+}
+
+.carb_table>thead {
+        text-align: left;
+    color: #fff;
+    font-size: 20px;
+}
+
+/* .protein_table>thead>tr{
+    border-radius: 5px;
+} */
+
+.faq_inner_container thead tr th {
+    padding: 10px;
+    text-align: center;
+}
+
+.faq_inner_container tbody tr:nth-child(odd) {
+    background-color: #fff;
+    font-size: 20px;
+}
+
+.faq_inner_container tbody tr:nth-child(even) {
+    background-color: #f2f7fad4;
+    font-size: 20px;
+}
+
+.faq_inner_container tbody td {
+    padding: 10px;
+    border: 0;
+}
+
+.bottom_td_right {
+    border-bottom-right-radius: 12px;
+}
+
+.bottom_td_left {
+    border-bottom-left-radius: 12px;
+}
+.TOC_btn{
+    background-color: transparent;
+    border-color: transparent;
+    font-size: large;
+    cursor: pointer;
+    color: #007a68;
+}
+
+.TOC_btn:hover{
+    text-decoration: underline;
+    font-weight: bold;
 }

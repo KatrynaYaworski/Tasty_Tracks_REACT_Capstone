@@ -31,7 +31,7 @@ const LandingPage=()=>{
             </section>
         </main>
             <section className={styles.how_it_works_container}>
-                <span>
+            <span className={styles.how_it_works_boxes}>
                 <img src={calculateImage} alt="" />
                 <div className={styles.how_it_works_text_container}>
                     <span className={styles.how_it_works_title}>Calculate Daily Macros</span>
@@ -39,7 +39,7 @@ const LandingPage=()=>{
                     <span className={styles.how_it_works_description}>Discover Your Daily Targets</span>
                 </div>
                 </span>
-                <span>
+                <span className={styles.how_it_works_boxes}>
                 <img src={mealImage} alt="" />
                 <div className={styles.how_it_works_text_container}>
                     <span className={styles.how_it_works_title}>Choose Your Meals</span>
@@ -47,7 +47,7 @@ const LandingPage=()=>{
                     <span className={styles.how_it_works_description}>Craft Your Perfect Menu</span>
                 </div>
                 </span>
-                <span>
+                <span className={styles.how_it_works_boxes}>
                 <img src={calendarImage} alt="" />
                 <div className={styles.how_it_works_text_container}>
                     <span className={styles.how_it_works_title}>Create a Meal Plan</span>
@@ -55,7 +55,7 @@ const LandingPage=()=>{
                     <span className={styles.how_it_works_description}>Craft a Culinary Calendar</span>
                 </div>
                 </span>
-                <span>
+                <span className={styles.how_it_works_boxes}>
                 <img src={adaptImage} alt="" />
                 <div className={styles.how_it_works_text_container}>
                     <span className={styles.how_it_works_title}>Adapt and Adjust</span>
@@ -63,7 +63,7 @@ const LandingPage=()=>{
                     <span className={styles.how_it_works_description}>Personalize Your Plate</span>
                 </div>
                 </span>
-                <span>
+                <span className={styles.how_it_works_boxes}>
                 <img src={commitImage} alt="" />
                 <div className={styles.how_it_works_text_container}>
                     <span className={styles.how_it_works_title}>Commit to Results</span>

@@ -522,6 +522,21 @@ textarea {
     height: 100%;
 
 }
+.add_recipe_container input{
+        outline: rgb(220, 218, 218);   
+}
+
+.add_recipe_container input:focus{
+    outline: none;
+}
+
+.add_recipe_container textarea{
+    outline: rgb(220, 218, 218);   
+}
+
+.add_recipe_container textarea:focus{
+outline: none;
+}
 
 .ind_radio_btn_container {
     display: flex;

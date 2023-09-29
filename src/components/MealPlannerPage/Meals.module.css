@@ -1,9 +1,11 @@
 table {
     border-collapse: collapse;
     width: 83%;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.4) 8px 8px 4px;
 }
 
-.meal_table>th, td {
+.meal_table>th{
     border: 1px solid #dddddd;
     text-align: left;
     padding: 5px;
@@ -12,18 +14,24 @@ table {
     text-align: center;
     color: grey;
 }
-
-.cells{
+#td {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 5px;
+    text-align: center;
     color: grey;
+    border-top:  1px solid #dddddd;
+    border-bottom:  1px solid #dddddd;
 }
-.cells:hover {
-    background-color: #f0f0f0;
-  }
-  
-  .meal_table tr:hover td {
+tr:hover #td{
     border-top: 2px dotted #1c9786;
     border-bottom: 2px dotted #1c9786;
+}
+
+.cells:hover {
+    background-color: #edebeb;
   }
+  
 th{
     position: sticky;
     top: 0;
@@ -32,14 +40,10 @@ th{
   .meal_td_day_sticky{
     background-color: #3A8686;
     color: white;
-    /* display: flex;
-    justify-content: center; */
     border: 1px solid #3A8686;
     font-size: 18px;
     font-weight: bold;
-    box-shadow: rgba(0, 0, 0, 0.4) 8px 8px 4px;
     position: sticky;
-    /* top: 0; */
   }
 
   .meal_td_header_sticky{
@@ -60,16 +64,20 @@ th{
     border: 1px solid #3A8686;
     font-size: 18px;
     font-weight: bold;
-    box-shadow: rgba(0, 0, 0, 0.4) 8px 8px 4px;
+    /* box-shadow: rgba(0, 0, 0, 0.4) 8px 8px 4px; */
+    text-align: center;
 }
 .meal_td{
     display: flex;
     justify-content: center;
     background-color:#F2F7FA;
-    box-shadow: rgba(0, 0, 0, 0.4) 8px 8px 4px;
+    /* box-shadow: rgba(0, 0, 0, 0.4) 8px 8px 4px; */
     font-weight: bold;
     color: #3A8686;
     border: 1px solid #3A8686;
+    text-align: left;
+    padding: 5px;
+    text-align: center;
 }
 
 #blank_th{

@@ -22,6 +22,16 @@
   border: 1px solid #dddddd;
 
 }
+.meal_table{
+  background-color: white;
+}
+#td {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 5px;
+  text-align: center;
+  color: grey;
+}
 
 .meal_table th {
   background-color: #E2F0D9;
@@ -36,10 +46,11 @@
     justify-content: space-between;
     width: 75%;
 }
-.meal_table tr:hover td {
+.meal_table tr:hover #td {
     border-top: 2px dotted #1c9786;
     border-bottom: 2px dotted #1c9786;
   }
+ 
 
   .details_recipe_name{
     background-color: grey;
@@ -50,9 +61,19 @@
   }
 
   .meal_td:hover{
-    background-color: #f0f0f0;
+    background-color: #edebeb;
   }
   
   .meal_table_top{
     width: 50%;
   }
+  .meal_td_day{
+      /* font-family: 'M PLUS Rounded 1c', sans-serif; */
+      background-color: #3A8686;
+      color: white;
+      border: 1px solid #3A8686;
+      font-size: 18px;
+      font-weight: bold;
+      /* box-shadow: rgba(0, 0, 0, 0.4) 8px 8px 4px; */
+      text-align: center;
+}

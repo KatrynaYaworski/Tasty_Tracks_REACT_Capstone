@@ -69,6 +69,7 @@ i{
     justify-content: space-between;
     padding: 10px 250px;
     text-align: center;
+    
 }
 
 img{
@@ -86,6 +87,7 @@ img{
     flex-direction: column;
     flex-wrap: wrap;
     align-items: center;
+
 }
 
 .how_it_works_title{
@@ -103,4 +105,10 @@ img{
     font-family: 'Mulish', sans-serif;
     padding: 0 10%;
     color: rgb(71, 70, 70);
+    margin-bottom: 5px;
+}
+
+.how_it_works_boxes{
+    width: 300px;
+    margin-bottom: 20px;
 }

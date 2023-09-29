@@ -39,7 +39,7 @@ const MealDetails = ({
       }
   })
   };
-  const days = ['Monday' , 'Tuesday', 'Wednesday', 'Friday', 'Saturday', 'Sunday'];
+  const days = ['Monday' , 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
   const [searchRecipe, setSearchRecipe] = useState("");
   const [searchType, setSearchType] = useState(selectedKey);
   const [searchMacro, setSearchMacro] = useState("");
@@ -74,7 +74,7 @@ const MealDetails = ({
     <table className={styles.meal_table_top}>
     <thead>
         <tr>
-            <th className={styles.meal_td_day}>{days[index]}</th>
+            <th className={styles.meal_td_day} style={{backgroundColor: "#3A8686", color: "white"}}>{days[index]}</th>
             <th>Total</th>
             <th>% of Total</th>
             
@@ -82,24 +82,24 @@ const MealDetails = ({
         </thead>
         <tbody>
             <tr>
-                <td>Calories</td>
-                <td>{totalsRef.current[index].calories.total}</td>
-                <td style={{color: isVarianceOffCalories ? '#ce0000df' : 'none', fontWeight: isVarianceOffCalories ? "bold" : 'none'}}>{totalsRef.current[index].calories.totalPercent}%</td>
+                <td id={styles.td} >Calories</td>
+                <td id={styles.td} >{totalsRef.current[index].calories.total}</td>
+                <td id={styles.td}  style={{color: isVarianceOffCalories ? '#ce0000df' : 'none', fontWeight: isVarianceOffCalories ? "bold" : 'none'}}>{totalsRef.current[index].calories.totalPercent}%</td>
             </tr>
             <tr>
-                <td>Carbs</td>
-                <td>{totalsRef.current[index].carbs.total}</td>
-                <td style={{color: isVarianceOffCarbs ? '#ce0000df' : 'none', fontWeight: isVarianceOffCarbs ? "bold" : 'none'}}>{totalsRef.current[index].carbs.totalPercent}%</td>
+                <td id={styles.td} >Carbs</td>
+                <td id={styles.td} >{totalsRef.current[index].carbs.total}</td>
+                <td id={styles.td}  style={{color: isVarianceOffCarbs ? '#ce0000df' : 'none', fontWeight: isVarianceOffCarbs ? "bold" : 'none'}}>{totalsRef.current[index].carbs.totalPercent}%</td>
             </tr>
             <tr>
-                <td>Protein</td>
-                <td>{totalsRef.current[index].protein.total}</td>
-                <td style={{color: isVarianceOffProtein ? '#ce0000df' : 'none', fontWeight: isVarianceOffProtein ? "bold" : 'none'}}>{totalsRef.current[index].protein.totalPercent}%</td>
+                <td id={styles.td} >Protein</td>
+                <td id={styles.td} >{totalsRef.current[index].protein.total}</td>
+                <td id={styles.td}  style={{color: isVarianceOffProtein ? '#ce0000df' : 'none', fontWeight: isVarianceOffProtein ? "bold" : 'none'}}>{totalsRef.current[index].protein.totalPercent}%</td>
             </tr>
             <tr>
-                <td>Fat</td>
-                <td>{totalsRef.current[index].fat.total}</td>
-                <td style={{color: isVarianceOffFat ? '#ce0000df' : 'none', fontWeight: isVarianceOffFat ? "bold" : 'none'}}>{totalsRef.current[index].fat.totalPercent}%</td>
+                <td id={styles.td}>Fat</td>
+                <td id={styles.td}>{totalsRef.current[index].fat.total}</td>
+                <td id={styles.td} style={{color: isVarianceOffFat ? '#ce0000df' : 'none', fontWeight: isVarianceOffFat ? "bold" : 'none'}}>{totalsRef.current[index].fat.totalPercent}%</td>
             </tr>
         </tbody>
     </table>
@@ -108,7 +108,7 @@ const MealDetails = ({
       <table className={styles.meal_table}>
         <thead>
           <tr>
-            <th className={styles.meal_td_day_sticky}>{searchType}</th>
+            <th style={{backgroundColor: "#3A8686", color: "white"}} className={styles.meal_td_day_sticky}>{searchType.charAt(0).toUpperCase() + searchType.slice(1)}</th>
             {headers.map((e) => (
               <th className={styles.meal_td_header_sticky}>{e}</th>
             ))}
@@ -134,11 +134,11 @@ const MealDetails = ({
             })
             .map((r) => (
               <tr> 
-                <td className={styles.meal_td} style={{cursor: 'pointer'}} onClick={() => onClickSelected(r.recipe_id)}>{r.name}</td>
-                <td>{r.calories}</td>
-                <td>{r.carbs}</td>
-                <td>{r.protein}</td>
-                <td>{r.fat}</td>
+                <td id={styles.td} className={styles.meal_td} style={{cursor: 'pointer'}} onClick={() => onClickSelected(r.recipe_id)}>{r.name}</td>
+                <td id={styles.td}>{r.calories}</td>
+                <td id={styles.td}>{r.carbs}</td>
+                <td id={styles.td}>{r.protein}</td>
+                <td id={styles.td}>{r.fat}</td>
               </tr>
               
             ))}
