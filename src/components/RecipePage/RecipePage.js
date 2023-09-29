@@ -10,6 +10,7 @@ import FilterUserRecipes from "./FilterUserRecipes";
 import Modal from "./RecipeModal/RecipeModal"
 import AddRecipeForm from "./AddRecipeForm";
 import AuthContext from '../../store/authContext'
+import Loading from "../Loading/Loading";
 
 const RecipePage = () => {
   const { state, dispatch } = useContext(AuthContext);
@@ -43,7 +44,7 @@ console.log(recipes)
         recipe.sortWeight = 1;
       }
       return (
-        title.includes(searchRecipeParams) && type.includes(searchTypeParams) && filter === false ? user_id === userRecipe : type.includes(searchTypeParams)
+        title.includes(searchRecipeParams) && type.includes(searchTypeParams) && filter === false ? user_id === userRecipe : type.includes(searchTypeParams) &&  title.includes(searchRecipeParams)
       );
     })
     .sort((a, b) => {
@@ -107,6 +108,7 @@ function getRecipes () {
   }, [state.userId]);
 
   return (
+    recipes.length ?
     <div>
       <div className={styles.recipes_title_container}>
       <div className={styles.recipes_title}>Recipes</div>
@@ -122,7 +124,8 @@ function getRecipes () {
       <Modal isOpen={isModalOpen} closeModal={closeModal}>
         <AddRecipeForm getRecipes={getRecipes} isOpen={isModalOpen} closeModal={closeModal}/>
       </Modal>
-    </div>
+    </div> :
+    <Loading/>
   );
 };
 

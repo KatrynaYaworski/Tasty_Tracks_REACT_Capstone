@@ -173,7 +173,11 @@ const WizardContainer = () => {
     };
     if(onStepThree && state.token){
       console.log({body})
-    axios.post("/user-details", body).then((res) => {
+    axios.post("/user-details", body, {
+      headers: {
+          authorization: state.token
+      }
+  }).then((res) => {
      
       navigate('/Meal Planner')
     }).catch(err => setError('Invalid entry'));

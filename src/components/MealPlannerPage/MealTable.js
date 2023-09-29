@@ -68,6 +68,7 @@ const MealTable = () => {
   const [selectedIndex, setSelectedIndex] = useState();
   const [selectedKey, setSelectedKey] = useState();
   const [selectedDays, setSelectedDays] = useState(dummySelectedDays);
+  const [authError, setAuthError] = useState(false);
   const totalsRef = useRef({});
 
   const openLogInMessageModal = () => {
@@ -110,25 +111,41 @@ const MealTable = () => {
     "Sunday",
   ];
 
+  function setAuthenticationError(){
+      setAuthError(true)
+  };
+
   useEffect(()=>{
     if(state.userId){
-      axios.get(`/usermeals/${state.userId}`).then((res)=>{
+      axios.get(`/usermeals/${state.userId}`, {
+        headers: {
+            authorization: state.token
+        }
+    }).then((res)=>{
         setSelectedDays(res.data)
         console.log(res.data)
-    }).catch((e)=>console.log(e))
+    }).catch(setAuthenticationError)
     }
   },[state.userId])
 
   useEffect(() => {
-    axios.get(`/user-details/${state.userId}`).then((res) => {
+    axios.get(`/user-details/${state.userId}`, {
+      headers: {
+          authorization: state.token
+      }
+  }).then((res) => {
       setResults(res.data);
-    });
+    }).catch(setAuthenticationError)
   }, []);
 
   useEffect(() => {
-    axios.get(`/recipes?userId=${state.userId}`).then((res) => {
+    axios.get(`/recipes?userId=${state.userId}`, {
+      headers: {
+          authorization: state.token
+      }
+  }).then((res) => {
       setRecipes(res.data);
-    });
+    }).catch(setAuthenticationError)
   }, []);
 
   const formatRowData = (arr, accessor, index) => {
@@ -154,7 +171,7 @@ const MealTable = () => {
         }
         totalsRef.current[index][accessor].total = total;
         totalsRef.current[index][accessor].totalPercent = totalPercent;
-        const isVarianceOff = totalPercent <85 || totalPercent > 110;
+        const isVarianceOff = totalPercent <85 && totalPercent > 0 || totalPercent > 110;
         return <span style={{color: isVarianceOff ? '#ce0000df' : 'none', fontWeight: isVarianceOff ? "bold" : 'none'}}>{totalPercent}%</span> 
       } else if (i === 6 && accessor !== "name") {
         return total;
@@ -178,7 +195,7 @@ const MealTable = () => {
       .reverse();
   };
   //['', '', '', 'breakfast', 'snackOne', 'lunch', 'snackTwo', 'dinner']
-  if(!state.token){
+  if(authError){
     return(
         <LoginMessage><Login/></LoginMessage>
     )
@@ -212,17 +229,17 @@ const MealTable = () => {
                   </tr>
                   <tr>
                     <td className={styles.meal_td}>Carbs</td>
-                    <td className={styles.cells}>{results.carbs}</td>
+                    <td >{results.carbs}</td>
                     {formatRowData(["", "", ...mealKeys], "carbs", i)}
                   </tr>
                   <tr>
                     <td className={styles.meal_td}>Protein</td>
-                    <td className={styles.cells}>{results.protein}</td>
+                    <td >{results.protein}</td>
                     {formatRowData(["", "", ...mealKeys], "protein", i)}
                   </tr>
                   <tr>
                     <td className={styles.meal_td}>Fat</td>
-                    <td className={styles.cells}>{results.fat}</td>
+                    <td >{results.fat}</td>
                     {formatRowData(["", "", ...mealKeys], "fat", i)}
                   </tr>
                 </>

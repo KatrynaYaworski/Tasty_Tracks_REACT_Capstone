@@ -33,9 +33,13 @@ const MealDetails = ({
       selections: selectedDays
     }
 
-    axios.post("/usermeals", body)
+    axios.post("/usermeals", body, {
+      headers: {
+          authorization: state.token
+      }
+  })
   };
-
+  const days = ['Monday' , 'Tuesday', 'Wednesday', 'Friday', 'Saturday', 'Sunday'];
   const [searchRecipe, setSearchRecipe] = useState("");
   const [searchType, setSearchType] = useState(selectedKey);
   const [searchMacro, setSearchMacro] = useState("");
@@ -49,6 +53,12 @@ const MealDetails = ({
     }
   }, []);
   console.log(totalsRef.current[index])
+  const isVarianceOff = totalsRef.current[index];
+  const isVarianceOffCalories = isVarianceOff.calories.totalPercent <85 && isVarianceOff.calories.totalPercent > 0 || isVarianceOff.calories.totalPercent > 110
+  const isVarianceOffCarbs = isVarianceOff.carbs.totalPercent <85 && isVarianceOff.carbs.totalPercent > 0 || isVarianceOff.carbs.totalPercent > 110
+  const isVarianceOffProtein = isVarianceOff.protein.totalPercent <85 && isVarianceOff.protein.totalPercent > 0 || isVarianceOff.protein.totalPercent > 110
+  const isVarianceOffFat = isVarianceOff.fat.totalPercent <85 && isVarianceOff.fat.totalPercent > 0 || isVarianceOff.fat.totalPercent > 110
+  
   return (
     <div className={styles.meal_details_wrapper}>
       <Search setSearchRecipe={setSearchRecipe} searchRecipe={searchRecipe} />
@@ -59,43 +69,37 @@ const MealDetails = ({
         direction={direction}
         setDirection={setDirection}
       />
-        <FilterUserRecipes  setFilter={setFilter} filter={filter} userRecipe={userRecipe} setUserRecipe={setUserRecipe}/>
+        <FilterUserRecipes setFilter={setFilter} filter={filter} userRecipe={userRecipe} setUserRecipe={setUserRecipe}/>
         </div>
-    <table className={styles.meal_table}>
+    <table className={styles.meal_table_top}>
     <thead>
         <tr>
-            <th className={styles.meal_td_day}>Day PH</th>
+            <th className={styles.meal_td_day}>{days[index]}</th>
             <th>Total</th>
             <th>% of Total</th>
+            
         </tr>
         </thead>
         <tbody>
-            {/* {headers.map((e)=>{
-                <tr>
-                    <td>{e}</td>
-                    <td>{totalsRef.current[index].e.total}</td>
-                <td>{totalsRef.current[index].e.totalPercent}%</td>
-                </tr>
-            })} */}
             <tr>
                 <td>Calories</td>
                 <td>{totalsRef.current[index].calories.total}</td>
-                <td>{totalsRef.current[index].calories.totalPercent}%</td>
+                <td style={{color: isVarianceOffCalories ? '#ce0000df' : 'none', fontWeight: isVarianceOffCalories ? "bold" : 'none'}}>{totalsRef.current[index].calories.totalPercent}%</td>
             </tr>
             <tr>
                 <td>Carbs</td>
                 <td>{totalsRef.current[index].carbs.total}</td>
-                <td>{totalsRef.current[index].carbs.totalPercent}%</td>
+                <td style={{color: isVarianceOffCarbs ? '#ce0000df' : 'none', fontWeight: isVarianceOffCarbs ? "bold" : 'none'}}>{totalsRef.current[index].carbs.totalPercent}%</td>
             </tr>
             <tr>
                 <td>Protein</td>
                 <td>{totalsRef.current[index].protein.total}</td>
-                <td>{totalsRef.current[index].protein.totalPercent}%</td>
+                <td style={{color: isVarianceOffProtein ? '#ce0000df' : 'none', fontWeight: isVarianceOffProtein ? "bold" : 'none'}}>{totalsRef.current[index].protein.totalPercent}%</td>
             </tr>
             <tr>
                 <td>Fat</td>
                 <td>{totalsRef.current[index].fat.total}</td>
-                <td>{totalsRef.current[index].fat.totalPercent}%</td>
+                <td style={{color: isVarianceOffFat ? '#ce0000df' : 'none', fontWeight: isVarianceOffFat ? "bold" : 'none'}}>{totalsRef.current[index].fat.totalPercent}%</td>
             </tr>
         </tbody>
     </table>
@@ -119,7 +123,7 @@ const MealDetails = ({
               let user_id = recipe.user_id;
 
               return (
-                title.includes(searchRecipeParams) && type.includes(searchType) && filter === false ? user_id === userRecipe : type.includes(searchType)
+                title.includes(searchRecipeParams) && type.includes(searchType) && filter === false ? user_id === userRecipe : type.includes(searchType) && title.includes(searchRecipeParams)
               );
             })
             .sort((a, b) => {
@@ -129,8 +133,8 @@ const MealDetails = ({
               return b[searchMacro] - a[searchMacro];
             })
             .map((r) => (
-              <tr>
-                <td className={styles.meal_td} onClick={() => onClickSelected(r.recipe_id)}>{r.name}</td>
+              <tr> 
+                <td className={styles.meal_td} style={{cursor: 'pointer'}} onClick={() => onClickSelected(r.recipe_id)}>{r.name}</td>
                 <td>{r.calories}</td>
                 <td>{r.carbs}</td>
                 <td>{r.protein}</td>

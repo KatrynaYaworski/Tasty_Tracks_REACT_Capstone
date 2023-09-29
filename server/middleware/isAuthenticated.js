@@ -3,7 +3,7 @@ const {SECRET} = process.env
 
 module.exports = { 
     isAuthenticated: (req, res, next) => {
-        const headerToken = req.get('Authorization') //saving the authorization header into the variable headerToken. 
+        const headerToken = req.get('Authorization') 
 
         if (!headerToken) { 
             console.log('ERROR IN auth middleware')
@@ -15,14 +15,14 @@ module.exports = {
         try { 
             token = jwt.verify(headerToken, SECRET) 
         } catch (err) {
-            err.statusCode = 500 // if error send 500 code and throw error. 
-            throw err // - will crash server if it errors.
+            err.statusCode = 500
+            res.status(401).send(err)
         }
 
         if (!token) { 
             const error = new Error('Not authenticated.')
             error.statusCode = 401
-            throw error
+            res.status(401).send(error)
         }
 
         next() 

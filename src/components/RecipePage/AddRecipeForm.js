@@ -43,7 +43,11 @@ const AddRecipeForm = ({ closeModal, getRecipes }) => {
       values.image_url = image;
     }
     console.log(values);
-    axios.post(`/recipes`, values).then((res) => {
+    axios.post(`/recipes`, values, {
+      headers: {
+          authorization: state.token
+      }
+  }).then((res) => {
       closeModal();
       getRecipes();
       console.log(res.data);

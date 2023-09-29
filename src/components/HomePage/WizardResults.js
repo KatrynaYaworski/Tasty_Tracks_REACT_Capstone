@@ -16,7 +16,7 @@ const WizardResults = ({ carbs, calories, fat, protein, error }) => {
               id={styles.calories}
               referrerPolicy="no-referrer"
               src="https://tinyurl.com/22nx6hd5"
-              style={{ height: "60px", width: "60px" }}
+              style={{ height: "90px", width: "90px" }}
             />
             <div>Calories</div>
             <div className={styles.wresults_number}>{calories}</div>
@@ -28,7 +28,7 @@ const WizardResults = ({ carbs, calories, fat, protein, error }) => {
               id={styles.carbs}
               referrerPolicy="no-referrer"
               src="https://tinyurl.com/2a2jcvwc"
-              style={{ height: "60px", width: "60px" }}
+              style={{ height: "90px", width: "90px" }}
             />
             <div>Carbs</div>
             <div className={styles.wresults_number}>{carbs}</div>
@@ -40,7 +40,7 @@ const WizardResults = ({ carbs, calories, fat, protein, error }) => {
               id={styles.fat}
               referrerPolicy="no-referrer"
               src="https://tinyurl.com/mvk9b79n"
-              style={{ height: "60px", width: "60px" }}
+              style={{ height: "90px", width: "90px" }}
             />
             <div>Fat</div>
             <div className={styles.wresults_number}>{fat}</div>
@@ -52,7 +52,7 @@ const WizardResults = ({ carbs, calories, fat, protein, error }) => {
               id={styles.protein}
               referrerPolicy="no-referrer"
               src="https://tinyurl.com/ychy7t35"
-              style={{ height: "60px", width: "60px" }}
+              style={{ height: "90px", width: "90px" }}
             />
             <div>Protein</div>
             <div className={styles.wresults_number}>{protein}</div>

@@ -3,7 +3,7 @@ table {
     width: 83%;
 }
 
-th, td {
+.meal_table>th, td {
     border: 1px solid #dddddd;
     text-align: left;
     padding: 5px;
@@ -24,6 +24,10 @@ th, td {
     border-top: 2px dotted #1c9786;
     border-bottom: 2px dotted #1c9786;
   }
+th{
+    position: sticky;
+    top: 0;
+  }
 
   .meal_td_day_sticky{
     background-color: #3A8686;
@@ -35,7 +39,7 @@ th, td {
     font-weight: bold;
     box-shadow: rgba(0, 0, 0, 0.4) 8px 8px 4px;
     position: sticky;
-    top: 0;
+    /* top: 0; */
   }
 
   .meal_td_header_sticky{
@@ -73,11 +77,12 @@ th, td {
     border: none;
 }
 
-th {
+.meal_table th {
     background-color: #E2F0D9;
     color: #919191;
     font-size: large;
     font-weight:550;
+    border: 1px solid #dddddd;
 
 }
 .meal_planner_container{

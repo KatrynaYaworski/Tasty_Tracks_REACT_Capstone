@@ -25,7 +25,7 @@ const LandingPage=()=>{
             <section className={styles.hero_video_content}>
             <div>
                 <h1>Tasty Tracks</h1>
-                <h4>Precision Nutrition, Tasty Results</h4>
+                <h4 className={styles.hero_title}>Precision Nutrition, Tasty Results</h4>
             </div>
             <button onClick={()=>navigate('/Home')} className={styles.get_started_btn}>Get Started</button>
             </section>

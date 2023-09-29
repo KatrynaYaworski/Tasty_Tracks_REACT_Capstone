@@ -29,7 +29,25 @@
     display: flex;
     width: 73%;
     justify-content: center;
-    background-color: white;
+}
+.faq_container{
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    width: 100vw;
+    /* flex-direction: column; */
+    text-wrap: wrap;
+    flex-direction: column;
+}
+
+.faq_inner_container{
+    display: flex;
+    /* align-items: center; */
+    width: 62vw;
+    padding-left: 0px;
+    /* flex-direction: column; */
+    text-wrap: wrap;
+    flex-direction: column;
 }
 
 .TOC_container {
@@ -42,6 +60,7 @@
     margin: 20px 0;
     padding: 25px 0;
     flex-direction: column;
+    background-color: white;
 }
 
 .TOC_title_container {
@@ -65,4 +84,66 @@ li {
 li:hover {
     text-decoration: underline;
     font-weight: bold;
+}
+
+.faq_steps{
+    display: inline-block;
+    position: relative;
+    background-size: contain;
+    padding: 25px 25px 25px 0;
+    color: white;
+}
+
+.faq_steps:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    transform: translate(-5px,10px) rotate(45deg);
+    display: inline-block;
+    width: 55px;
+    height: 55px;
+    background-color: #5eb6a9;
+    border-radius: 11px;
+}
+
+.box{
+    width: 30%;
+    display: inline-block;
+    background: #0a0a0a0a;
+    text-align: center;
+    padding: 10px 0;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    margin-left: 8px;
+}
+
+.box div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+.scroll_to_top{
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    border-radius: 50%;
+    color: #fff;
+    padding: 16px;
+    background-image: linear-gradient(45deg,#48d3bc,#007a68);
+    box-shadow: 0 0 8px rgba(211,211,211,0.281);
+    width: 50px;
+    cursor: pointer;
+    height: 50px;
+    display: none;
+    z-index: 10000;
+    /* box-shadow: inset  #1c9786;  */
+    transition: color .1s ease-in-out box-shadow .2s ease-in-out;
+}
+
+.scroll_to_top:hover{
+    box-shadow: inset 100px 0 0 0 #3A8686;
+    color: white;
 }

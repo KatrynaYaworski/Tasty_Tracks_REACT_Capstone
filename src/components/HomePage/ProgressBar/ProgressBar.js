@@ -12,7 +12,7 @@ const ProgressBar = ({ currentStep }) => {
           {isStepOneComplete ? "✓" : ""}
         </div>
         <div className={`bar ${isStepTwoComplete ? "completed" : ""}`} />
-        <div className={`circle ${isStepTwoComplete ? "completed" : ""}`}>
+        <div className={`circle ${isStepTwoComplete ? "completed_two" : ""}`}>
           {isStepTwoComplete ? "✓" : ""}
         </div>
       </div>

@@ -14,7 +14,23 @@
 .cells{
     color: grey;
 }
+.meal_table_top th {
+  background-color: #E2F0D9;
+  color: #919191;
+  font-size: large;
+  font-weight:550;
+  border: 1px solid #dddddd;
 
+}
+
+.meal_table th {
+  background-color: #E2F0D9;
+  color: #919191;
+  font-size: large;
+  font-weight:550;
+  border: 1px solid #dddddd;
+
+}
 .filter_details_container{
     display: flex;
     justify-content: space-between;
@@ -31,4 +47,12 @@
 
   .details_recipe_name:hover{
     background-color: grey;
+  }
+
+  .meal_td:hover{
+    background-color: #f0f0f0;
+  }
+  
+  .meal_table_top{
+    width: 50%;
   }

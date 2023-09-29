@@ -15,7 +15,11 @@ const RecipeCard = ({ recipe, getRecipes, setRecipes }) => {
     const handleDeleteClick = (event) => {
       event.stopPropagation();
       console.log('delete button clicked')
-      axios.delete(`/recipes/${state.userId}/${recipe.recipe_id}`).then((res) => {
+      axios.delete(`/recipes/${state.userId}/${recipe.recipe_id}`, {
+        headers: {
+            authorization: state.token
+        }
+    }).then((res) => {
         console.log(res.data);
         getRecipes()
       });

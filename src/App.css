@@ -1,5 +1,5 @@
 /* PROGRESS BAR */
-.bar.completed {
+/* .bar.completed {
     background-color: #1DA491;
     width: 350px;
     height: 10px;
@@ -9,9 +9,86 @@
     width: 350px;
     height: 10px;
     border-radius: 10px;
-  }
+  } */
+ 
+  /* Define the loading bar styles */
+.bar {
+  background-color: rgb(219, 219, 219);
+  width: 350px; /* Set the total width of the loading bar */
+  height: 10px;
+  border-radius: 10px;
+  position: relative;
+}
 
-.circle{
+/* Define the completed state for the loading bar */
+.bar.completed::before {
+  content: '';
+  background-color: #1DA491;
+  height: 100%;
+  width: 100%; /* Fills the entire width of the loading bar */
+  border-radius: 10px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  animation: fill .3s ease-in-out; /* Animation duration and timing */
+}
+
+/* Keyframes for the loading animation */
+@keyframes fill {
+  from {
+    width: 0; /* Start with no width */
+  }
+  to {
+    width: 100%; /* Fill the entire width of the loading bar */
+  }
+}
+
+/* Hide the circle initially */
+/* .circle {
+  display: none;
+} */
+
+/* Define the completed state for the circle */
+.circle.completed {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to bottom,#47c376,#1fa491)!important;
+  border: solid rgb(170, 170, 170);
+  border-radius: 30px;
+  width: 35px;
+  height: 35px;
+  font-weight: 900;
+  font-size: xx-large;
+  color: white;
+  border-color: #1DA491;
+ /* Animation to show the circle */
+}
+.circle.completed_two {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to bottom,#47c376,#1fa491)!important;
+  border: solid rgb(170, 170, 170);
+  border-radius: 30px;
+  width: 35px;
+  height: 35px;
+  font-weight: 900;
+  font-size: xx-large;
+  color: white;
+  border-color: #1DA491;
+  animation: circleAppear .2s ease-in-out; /* Animation to show the circle */
+}
+
+/* Keyframes to show the circle */
+@keyframes circleAppear {
+  from {
+    opacity: 0; /* Start with no opacity */
+  }
+  to {
+    opacity: .1; /* Gradually appear */
+  }
+}.circle{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -22,12 +99,14 @@
     font-weight: 900;
     font-size: xx-large;
 }
+/* 
 
 .circle.completed {
     background-color: #1DA491; 
+    background: linear-gradient(to bottom,#47c376,#1fa491)!important;
     color: white; 
     border-color: #1DA491; 
-  }
+  } */
 
   /* App */
   body{
