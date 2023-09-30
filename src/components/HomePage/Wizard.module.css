@@ -248,6 +248,7 @@
 #w_st_input_weight{
     width: 27.3vw;
     color: #1c9786;
+    outline: none;
 }
 #w_st_input_inches{
     width: 10.5vw;
@@ -293,10 +294,10 @@
     color: #1DA491;
     font-weight: 540;
 }
-/* 
+
 .w_st_bottom_container select:focus{
     outline: rgb(220, 218, 218);
- } */
+ } 
 
 .w_st_span{
     border-top-right-radius: 6px;
@@ -307,6 +308,8 @@
     background-color: rgb(234, 233, 233);
     color: #1c9786;
     font-weight: 400;
+    height: 18px;
+    text-align: center;
  }
 
  .w_st_middle_input_container{
@@ -334,9 +337,10 @@
 
  }
  .wresults_macro_container h2{
-    margin-bottom: 50px;
+    margin-top: 0;
+    margin-bottom: 60px;
     font-size: 30px;
-    font-weight: 500;
+    font-weight: 800;
  }
 
  .wresults_macro_container{
@@ -372,6 +376,7 @@
     position: absolute;
     top: -46px;
  }
+
 
 
  

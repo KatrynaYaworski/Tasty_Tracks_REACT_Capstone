@@ -33,7 +33,7 @@ const Home = () => {
             <div className={styles.TOC_title}> Table of Contents</div>
           </div>
           <ul>
-            <li><button className={styles.TOC_btn} onClick={() => scrollTo('section1')} href="section1">How to use macro calculator to calculate your macro?</button></li>
+            <li><button className={styles.TOC_btn} onClick={() => scrollTo('section1')} href="section1">How to use the Tasty Tracks macro calculator to calculate your macros?</button></li>
             <li><button className={styles.TOC_btn} onClick={() => scrollTo('section2')} href="#section2">What are Macros (IIFYM) or Macronutrients?</button></li>
             <li><button className={styles.TOC_btn} onClick={() => scrollTo('section3')} href="#section3">What are the advantages of using our macro calculator?</button></li>
           </ul>
@@ -41,22 +41,22 @@ const Home = () => {
       </div>
       <div className={styles.faq_container}>
         <div className={styles.faq_inner_container}>
-          <p>
-          Our advanced macro calculator is your personalized solution for effortlessly calculating your nutrient intake and receiving real-time diet plans.
+          <p className={styles.TOC_under_txt}>
+          This advanced macro calculator is your personalized solution for effortlessly calculating your nutrient intake and receiving real-time diet plans.
           </p>
-          <h2 id="section1">How to use macro calculator to calculate your macros?</h2>
+          <h2 id="section1">How to use the Tasty Tracks macro calculator to calculate your macros?</h2>
           <p>
             With a simple three-step process, our user-friendly tool delivers instant and accurate results tailored to your unique requirements.
           </p>
           <h4 className={styles.faq_steps}>Step 1</h4>
-          <p>Select your gender, activity level and enter your age.</p>
+          <p className={styles.faq_steps_text}>Select your gender, activity level and enter your age.</p>
           <h4 className={styles.faq_steps}>Step 2</h4>
-          <p>
+          <p className={styles.faq_steps_text}>
             Enter the measurements of your weight and height and select your
             goal.
           </p>
           <h4 className={styles.faq_steps}>Step 3</h4>
-          <p>
+          <p className={styles.faq_steps_text}>
             Click "Calculate" to get the whole plan that includes per day values
             of your macros and calories
           </p>
@@ -113,7 +113,7 @@ const Home = () => {
           <p>
           Carbohydrates are macromolecules composed of carbon, hydrogen, and oxygen. They play a crucial role in supporting the proper functioning of both the mind and body. These macronutrients are a vital component of our diet, providing essential energy for various bodily functions.
           </p>
-          <p>Carbs in a Selection of Foods:</p>
+          <p className={styles.decrip_titles}>Carbs in a Selection of Foods:</p>
           <table className={styles.carb_table} style={{width: "100%", borderRadius:"12px"}} >
             <thead>
               <tr>
@@ -170,7 +170,7 @@ const Home = () => {
           <p>
           Proteins are macronutrients formed through the polymerization of amino acids, where amino acids are linked together in long chains to create protein molecules. The structure of proteins includes hydrogen, carbon, oxygen, and nitrogen.
           </p>
-          <p>Protein in Various Foods:</p>
+          <p className={styles.decrip_titles}>Protein in Various Foods:</p>
 
           <table className={styles.protein_table} style={{width: "100%", borderRadius:"12px"}} >
             <thead>
@@ -224,7 +224,7 @@ const Home = () => {
           <p>
           Fats consist of lipids containing carbon, hydrogen, and oxygen. These lipids are long-chain polymers of fatty acids, and based on the presence of double bonds, fats can be categorized as saturated or unsaturated.
           </p>
-          <p>Fats in Various Foods:</p>
+          <p className={styles.decrip_titles}>Fats in Various Foods:</p>
           <table className={styles.fat_table} style={{width: "100%", borderRadius:"12px"}} >
             <thead>
               <tr>
@@ -266,15 +266,15 @@ const Home = () => {
           <h2 id="section3">
             What are the advantages of using Tasty Tracks Macro calculator?
           </h2>
-          <p>Nutritional Analysis:</p>
+          <p className={styles.decrip_titles_btm}>Nutritional Analysis:</p>
           <li>
           Utilize our macro calculator to thoroughly analyze your daily nutritional values, energy consumption, and intake. It acts like your account’s bank statement, offering a clear depiction of your nutritional deposits and withdrawals.
           </li>
-          <p>Efficient Weight Loss:</p>
+          <p className={styles.decrip_titles_btm}>Efficient Weight Loss:</p>
           <li>
           Achieving faster weight loss becomes more manageable with an online macro calculation tool. The calculator guides you on the required dietary intake to reach your weight goals. Easily track macronutrient requirements, ensuring efficient weight loss while maintaining your activity level.
           </li>
-          <p>Comprehensive Diet Planning:</p>
+          <p className={styles.decrip_titles_btm}>Comprehensive Diet Planning:</p>
           <li>
           Crafting and adhering to a diet plan can be challenging without a comprehensive strategy. Tasty Tracks Macro Calculator provides precise values for carbs, proteins, fats, and calorie intake. This information empowers you to develop a well-structured diet plan, whether your goal is weight loss or gain. Stay motivated with accurate insights from our macros calculator.
           </li>

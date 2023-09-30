@@ -11,6 +11,7 @@
     display: flex;
     justify-content: center;
     flex-direction: column;
+    font-family: "Poppins",sans-sarif!important;
 }
 
 .home_steps_container {
@@ -29,7 +30,7 @@
     display: flex;
     /* width: 100vw; */
     justify-content: center;
-    font-family: 'Mulish', sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
 .faq_container {
@@ -40,6 +41,7 @@
     /* flex-direction: column; */
     text-wrap: wrap;
     flex-direction: column;
+    font-family: 'Poppins', sans-serif;
 }
 
 .faq_inner_container {
@@ -50,7 +52,7 @@
     /* flex-direction: column; */
     text-wrap: wrap;
     flex-direction: column;
-    font-family: 'Mulish', sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
 .TOC_container {
@@ -60,8 +62,8 @@
     border-radius: 15px;
     border-width: 2px;
     width: 50%;
-    margin: 70px 0 30px 0;
-    padding: 25px 0;
+    margin: 30px 0 30px 0;
+    padding: 10px 0;
     flex-direction: column;
     background-color: white;
 }
@@ -233,12 +235,42 @@
 .TOC_btn{
     background-color: transparent;
     border-color: transparent;
-    font-size: large;
+    font-size: 22px;
     cursor: pointer;
-    color: #007a68;
+    color:#3A8686 ;
+    transition: .2s ease-in-out;
 }
 
 .TOC_btn:hover{
-    text-decoration: underline;
+    /* text-decoration:underline ; */
+    color: #41bea9;
+    font-weight: 500;
+    transition: .2s ease-in-out;
+}
+
+
+.faq_steps_text{
+    margin-top: -15px;
     font-weight: bold;
+    color: grey;
+}
+.faq_inner_container>h2{
+    color:#3A8686 ;
+    font-weight: bolder;
+    font-size: 25px;
+    margin-top: 35px;
+}
+.TOC_under_txt{
+    margin-top: -5px;
+}
+
+.decrip_titles{
+    /* color: #007a68; */
+    font-weight: bold;
+    /* font-size: large; */
+}
+.decrip_titles_btm{
+     color: #007a68;
+     font-weight: bold;
+     font-size: large;
 }

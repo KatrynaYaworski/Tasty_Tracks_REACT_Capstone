@@ -8,11 +8,11 @@ const ProgressBar = ({ currentStep }) => {
   return (
     <div className={styles.progress_container}>
       <div className={styles.progress_bar}>
-        <div className={`circle ${isStepOneComplete ? "completed" : ""}`}>
+        <div style={{fontFamily:"cursive"}} className={`circle ${isStepOneComplete ? "completed" : ""}`}>
           {isStepOneComplete ? "✓" : ""}
         </div>
-        <div className={`bar ${isStepTwoComplete ? "completed" : ""}`} />
-        <div className={`circle ${isStepTwoComplete ? "completed_two" : ""}`}>
+        <div  className={`bar ${isStepTwoComplete ? "completed" : ""}`} />
+        <div style={{fontFamily:"cursive"}} className={`circle ${isStepTwoComplete ? "completed_two" : ""}`}>
           {isStepTwoComplete ? "✓" : ""}
         </div>
       </div>
