@@ -9,7 +9,7 @@
     max-height: 50vh;
     min-height: 40vh;
     overflow-y:scroll;
-    width: 75%;
+    width: 80%;
 }
 .cells{
     color: grey;
@@ -76,4 +76,23 @@
       font-weight: bold;
       /* box-shadow: rgba(0, 0, 0, 0.4) 8px 8px 4px; */
       text-align: center;
+}
+.clear_btn{
+  background-color: #1c9786;
+  border: #1c9786;
+  border: none;
+  border-radius: 6px;
+  width: 100px;
+  height: 38px;
+  color: white;
+  font-weight: bolder;
+  font-size: large;
+  cursor: pointer;
+  box-shadow: inset  #1c9786; 
+  transition: color .1s ease-in-out, box-shadow .2s ease-in-out;
+}
+
+.clear_btn:hover{
+  box-shadow: inset 200px 0 0 0 #3A8686;
+  color: white;
 }

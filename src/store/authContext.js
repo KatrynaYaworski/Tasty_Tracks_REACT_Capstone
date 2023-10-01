@@ -4,7 +4,8 @@ const initialState = {
   userId: null,
   token: null,
   exp: null,
-  username: null
+  username: null,
+  userPending: false
 };
 
 const AuthContext = createContext();
@@ -32,6 +33,8 @@ const getLocalData = () => {
 const AuthContextProvider = (props) => {
   const reducer = (state, action) => {
     switch (action.type) {
+      case "LOGIN_PENDING":
+        return { ...state, userPending: true}
       case "LOGIN":
         let { token, exp, userId, username } = action.payload;
         localStorage.setItem("token", token);

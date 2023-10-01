@@ -159,3 +159,6 @@ th{
     box-shadow: inset 200px 0 0 0 #3A8686;
     color: white;
 }
+.cells{
+    min-width: 125px;
+}

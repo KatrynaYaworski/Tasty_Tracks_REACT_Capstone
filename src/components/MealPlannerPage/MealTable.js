@@ -69,6 +69,8 @@ const MealTable = () => {
   const [selectedKey, setSelectedKey] = useState();
   const [selectedDays, setSelectedDays] = useState(dummySelectedDays);
   const [authError, setAuthError] = useState(false);
+  const [loading, setLoading] = useState(false)
+
   const totalsRef = useRef({});
 
   const openLogInMessageModal = () => {
@@ -131,17 +133,21 @@ const MealTable = () => {
 
   useEffect(()=>{
     if(state.userId){
+      setLoading(true)
       axios.get(`/usermeals/${state.userId}`, {
         headers: {
-            authorization: state.token
+          authorization: state.token
         }
-    }).then((res)=>{
+      }).then((res)=>{
         setSelectedDays(res.data || dummySelectedDays)
-    }).catch(setAuthenticationError)
+      }).catch(setAuthenticationError)
+      .finally(() =>  setLoading(false))
     }
   },[state.userId])
 
   useEffect(() => {
+    if(state.userId){
+      setLoading(true)
     axios.get(`/user-details/${state.userId}`, {
       headers: {
           authorization: state.token
@@ -149,17 +155,24 @@ const MealTable = () => {
   }).then((res) => {
       setResults(res.data);
     }).catch(setAuthenticationError)
-  }, []);
+    .finally(() =>  setLoading(false))
+  }
+  }, [state.userId]);
 
   useEffect(() => {
-    axios.get(`/recipes?userId=${state.userId}`, {
-      headers: {
+    if(state.userId){
+      setLoading(true)
+      axios.get(`/recipes?userId=${state.userId}`, {
+        headers: {
           authorization: state.token
-      }
-  }).then((res) => {
-      setRecipes(res.data);
-    }).catch(setAuthenticationError)
-  }, []);
+        }
+      }).then((res) => {
+        setRecipes(res.data);
+      }).catch(setAuthenticationError)
+      .finally(() =>  setLoading(false))
+     
+    }
+  }, [state.userId]);
 
   const formatRowData = (arr, accessor, index) => {
     let total = 0;
@@ -209,7 +222,7 @@ const MealTable = () => {
       .reverse();
   };
   //['', '', '', 'breakfast', 'snackOne', 'lunch', 'snackTwo', 'dinner']
-  if(authError){
+  if(authError || (!loading && !results)){
     return(
         <LoginMessage><Login/></LoginMessage>
     )

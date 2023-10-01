@@ -28,7 +28,7 @@ const MealDetails = ({
     objectCopy[selectedKey] = recipeId;
     selectedDaysCopy[index] = objectCopy
     setSelectedDays(selectedDaysCopy);
-
+    setClearSelected(false)
    const body = {
       user_id: state.userId,
       selections: selectedDaysCopy
@@ -47,6 +47,7 @@ const MealDetails = ({
   const [direction, setDirection] = useState("ascending");
   const [userRecipe, setUserRecipe] = useState(null);
   const [filter, setFilter] = useState(false);
+  const [clearSelected, setClearSelected] = useState(false);
   
   useEffect(() => {
     if (selectedKey.includes("snack")) {
@@ -71,6 +72,11 @@ const MealDetails = ({
         setDirection={setDirection}
       />
         <FilterUserRecipes setFilter={setFilter} filter={filter} userRecipe={userRecipe} setUserRecipe={setUserRecipe}/>
+        <button className={styles.clear_btn} onClick={()=>{
+          setClearSelected(true)
+          onClickSelected('')
+        }
+        }>Clear</button>
         </div>
     <table className={styles.meal_table_top}>
     <thead>
