@@ -4,7 +4,7 @@ const cors = require("cors");
 const path = require("path")
 const app = express();
 
-const { SERVER_PORT } = process.env;
+const { PORT } = process.env;
 
 const { seed } = require('./controllers/seed');
 const { getRecipes, addRecipe, deleteRecipe } = require("./controllers/recipes");
@@ -43,4 +43,4 @@ app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, '../build/index.html'));
   });
 
-app.listen(SERVER_PORT, () => console.log(`up on ${SERVER_PORT}`));
+app.listen(PORT, () => console.log(`up on ${PORT}`));
