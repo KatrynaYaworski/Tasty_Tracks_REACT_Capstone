@@ -110,6 +110,20 @@ const MealTable = () => {
     "Saturday",
     "Sunday",
   ];
+  function clearSelection(){
+      setSelectedDays(dummySelectedDays)
+      console.log({dummySelectedDays})
+      const body = {
+        user_id: state.userId,
+        selections: dummySelectedDays
+      }
+  
+      axios.post("/usermeals", body, {
+        headers: {
+            authorization: state.token
+        }
+    })
+  }
 
   function setAuthenticationError(){
       setAuthError(true)
@@ -122,8 +136,7 @@ const MealTable = () => {
             authorization: state.token
         }
     }).then((res)=>{
-        setSelectedDays(res.data)
-        console.log(res.data)
+        setSelectedDays(res.data || dummySelectedDays)
     }).catch(setAuthenticationError)
     }
   },[state.userId])
@@ -171,8 +184,9 @@ const MealTable = () => {
         }
         totalsRef.current[index][accessor].total = total;
         totalsRef.current[index][accessor].totalPercent = totalPercent;
-        const isVarianceOff = totalPercent <85 && totalPercent > 0 || totalPercent > 110;
-        return <span style={{color: isVarianceOff ? '#ce0000df' : 'none', fontWeight: isVarianceOff ? "bold" : 'none'}}>{totalPercent}%</span> 
+        const isVarianceOff = (totalPercent < 85 && totalPercent > 0) || totalPercent > 110;
+        // console.log({ totalPercent, isVarianceOff })
+        return <span style={{color: isVarianceOff ? '#ce0000df' : '', fontWeight: isVarianceOff ? "bold" : ''}}>{totalPercent}%</span> 
       } else if (i === 6 && accessor !== "name") {
         return total;
       } else {
@@ -205,6 +219,9 @@ const MealTable = () => {
       <div>
         <div className={styles.meal_planner_title_container}>
           <div className={styles.meal_planner_title}>Meal Planner</div>
+          <div className={styles.clear_btn_container}>
+        <button className={styles.clear_btn} onClick={clearSelection}>Clear Selection</button>
+        </div>
         </div>
         <div className={styles.meal_planner_container}>
           <table className={styles.meal_table}>

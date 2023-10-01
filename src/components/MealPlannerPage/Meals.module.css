@@ -100,8 +100,10 @@ th{
 }
 .meal_planner_title_container{
     display: flex;
-    align-items: flex-start;
     justify-content: center;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
     
 }
 
@@ -109,7 +111,7 @@ th{
     font-family: 'Yellowtail', cursive;
     font-size: 90px;
     color: #1c9786;
-    width: 80vw;
+    width: 70%;
     margin: -40px 0;
 }
 
@@ -133,3 +135,27 @@ th{
     width: 75%;
 }
 
+.clear_btn_container{
+    /* width: 200px; */
+}
+
+
+.clear_btn{
+    background-color: #1DA491;
+    border: none;
+    border-radius: 6px;
+    padding: 5px 10px;
+    /* width: 135px; */
+    height: 40px;
+    color: white;
+    font-weight: bolder;
+    font-size: large;
+    cursor: pointer;
+    box-shadow: inset  #1c9786; 
+    transition: color .1s ease-in-out, box-shadow .2s ease-in-out;
+}
+
+.clear_btn:hover{
+    box-shadow: inset 200px 0 0 0 #3A8686;
+    color: white;
+}

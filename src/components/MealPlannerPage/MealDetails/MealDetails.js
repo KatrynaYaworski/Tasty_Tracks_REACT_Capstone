@@ -24,13 +24,14 @@ const MealDetails = ({
   
   const onClickSelected = (recipeId) => {
     const selectedDaysCopy = [...selectedDays];
-    selectedDaysCopy[index][selectedKey] = recipeId;
+    const objectCopy = {...selectedDaysCopy[index]}
+    objectCopy[selectedKey] = recipeId;
+    selectedDaysCopy[index] = objectCopy
     setSelectedDays(selectedDaysCopy);
-    console.log({selectedDays})
 
    const body = {
       user_id: state.userId,
-      selections: selectedDays
+      selections: selectedDaysCopy
     }
 
     axios.post("/usermeals", body, {
@@ -84,22 +85,22 @@ const MealDetails = ({
             <tr>
                 <td id={styles.td} >Calories</td>
                 <td id={styles.td} >{totalsRef.current[index].calories.total}</td>
-                <td id={styles.td}  style={{color: isVarianceOffCalories ? '#ce0000df' : 'none', fontWeight: isVarianceOffCalories ? "bold" : 'none'}}>{totalsRef.current[index].calories.totalPercent}%</td>
+                <td id={styles.td}  style={{color: isVarianceOffCalories ? '#ce0000df' : '', fontWeight: isVarianceOffCalories ? "bold" : ''}}>{totalsRef.current[index].calories.totalPercent}%</td>
             </tr>
             <tr>
                 <td id={styles.td} >Carbs</td>
                 <td id={styles.td} >{totalsRef.current[index].carbs.total}</td>
-                <td id={styles.td}  style={{color: isVarianceOffCarbs ? '#ce0000df' : 'none', fontWeight: isVarianceOffCarbs ? "bold" : 'none'}}>{totalsRef.current[index].carbs.totalPercent}%</td>
+                <td id={styles.td}  style={{color: isVarianceOffCarbs ? '#ce0000df' : '', fontWeight: isVarianceOffCarbs ? "bold" : ''}}>{totalsRef.current[index].carbs.totalPercent}%</td>
             </tr>
             <tr>
                 <td id={styles.td} >Protein</td>
                 <td id={styles.td} >{totalsRef.current[index].protein.total}</td>
-                <td id={styles.td}  style={{color: isVarianceOffProtein ? '#ce0000df' : 'none', fontWeight: isVarianceOffProtein ? "bold" : 'none'}}>{totalsRef.current[index].protein.totalPercent}%</td>
+                <td id={styles.td}  style={{color: isVarianceOffProtein ? '#ce0000df' : '', fontWeight: isVarianceOffProtein ? "bold" : ''}}>{totalsRef.current[index].protein.totalPercent}%</td>
             </tr>
             <tr>
                 <td id={styles.td}>Fat</td>
                 <td id={styles.td}>{totalsRef.current[index].fat.total}</td>
-                <td id={styles.td} style={{color: isVarianceOffFat ? '#ce0000df' : 'none', fontWeight: isVarianceOffFat ? "bold" : 'none'}}>{totalsRef.current[index].fat.totalPercent}%</td>
+                <td id={styles.td} style={{color: isVarianceOffFat ? '#ce0000df' : '', fontWeight: isVarianceOffFat ? "bold" : ''}}>{totalsRef.current[index].fat.totalPercent}%</td>
             </tr>
         </tbody>
     </table>

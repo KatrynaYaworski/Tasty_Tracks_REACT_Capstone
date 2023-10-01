@@ -70,13 +70,13 @@
 
 .TOC_title_container {
     display: flex;
-    align-items: flex-start;
-    width: 75%;
-    margin-left: 50px;
+    justify-content: center;
+    width: 100%;
+    /* margin-left: 50px; */
 }
 
 .TOC_title {
-    align-items: flex-start;
+    /* align-items: flex-start; */
     font-size: x-large;
 }
 
@@ -84,7 +84,7 @@
     color: #1c9786;
     font-size: x-large;
     cursor: pointer;
-    margin-left: 150px;
+    
 }
 
 .TOC_container>ul>li:hover {
@@ -239,6 +239,7 @@
     cursor: pointer;
     color:#3A8686 ;
     transition: .2s ease-in-out;
+    text-align: left;
 }
 
 .TOC_btn:hover{
@@ -273,4 +274,13 @@
      color: #007a68;
      font-weight: bold;
      font-size: large;
+     margin-top: 50px;
+}
+
+.decrip_titles_li{
+    margin-bottom: 10px;
+}
+
+.decrip_titles_li_bottom{
+    margin-bottom: 100px;
 }

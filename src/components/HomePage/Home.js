@@ -176,8 +176,8 @@ const Home = () => {
             <thead>
               <tr>
                 <th style={{position: "relative"}}>Food</th>
-                <th style={{position: "relative"}}>Protein Size</th>
-                <th style={{position: "relative"}}>Protein Quanity</th>
+                <th style={{position: "relative"}}>Portion Size</th>
+                <th style={{position: "relative"}}>Protien (g)</th>
               </tr>
             </thead>
             <tbody>
@@ -229,8 +229,8 @@ const Home = () => {
             <thead>
               <tr>
                 <th style={{position: "relative"}}>Oil</th>
-                <th style={{position: "relative"}}>Mono Saturated</th>
-                <th style={{position: "relative"}}>Saturated</th>
+                <th style={{position: "relative"}}>Mono Saturated (g)</th>
+                <th style={{position: "relative"}}>Saturated (g)</th>
               </tr>
             </thead>
             <tbody>
@@ -267,15 +267,15 @@ const Home = () => {
             What are the advantages of using Tasty Tracks Macro calculator?
           </h2>
           <p className={styles.decrip_titles_btm}>Nutritional Analysis:</p>
-          <li>
+          <li className={styles.decrip_titles_li}>
           Utilize our macro calculator to thoroughly analyze your daily nutritional values, energy consumption, and intake. It acts like your account’s bank statement, offering a clear depiction of your nutritional deposits and withdrawals.
           </li>
           <p className={styles.decrip_titles_btm}>Efficient Weight Loss:</p>
-          <li>
+          <li className={styles.decrip_titles_li}>
           Achieving faster weight loss becomes more manageable with an online macro calculation tool. The calculator guides you on the required dietary intake to reach your weight goals. Easily track macronutrient requirements, ensuring efficient weight loss while maintaining your activity level.
           </li>
           <p className={styles.decrip_titles_btm}>Comprehensive Diet Planning:</p>
-          <li>
+          <li className={styles.decrip_titles_li_bottom}>
           Crafting and adhering to a diet plan can be challenging without a comprehensive strategy. Tasty Tracks Macro Calculator provides precise values for carbs, proteins, fats, and calorie intake. This information empowers you to develop a well-structured diet plan, whether your goal is weight loss or gain. Stay motivated with accurate insights from our macros calculator.
           </li>
         

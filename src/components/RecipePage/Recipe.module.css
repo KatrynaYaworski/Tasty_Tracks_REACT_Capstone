@@ -394,9 +394,10 @@
     display: flex;
     background-color: white;
     flex-direction: column;
+    justify-content: space-around;
     width: 50%;
     border-radius: 10px;
-    padding: 15px;
+    padding: 0 15px;
     margin-left: 10px;
 }
 #mmr_heading_container{
@@ -418,7 +419,8 @@
 .recipe_details_r_title{
     font-family: 'Manrope', sans-serif;
     color: #1c9786;
-    margin-top: 18px;
+    margin: 0;
+    /* margin-top: 18px; */
     /* height: 10%; */
 }
 

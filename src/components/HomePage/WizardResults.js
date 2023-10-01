@@ -18,7 +18,7 @@ const WizardResults = ({ carbs, calories, fat, protein, error }) => {
               src="https://tinyurl.com/22nx6hd5"
               style={{ height: "90px", width: "90px" }}
             />
-            <div>Calories</div>
+            <div className={styles.box_macro}>Calories</div>
             <div className={styles.wresults_number}>{calories}</div>
             <div>Total</div>
           </div>
@@ -30,7 +30,7 @@ const WizardResults = ({ carbs, calories, fat, protein, error }) => {
               src="https://tinyurl.com/2a2jcvwc"
               style={{ height: "90px", width: "90px" }}
             />
-            <div>Carbs</div>
+            <div className={styles.box_macro}>Carbs</div>
             <div className={styles.wresults_number}>{carbs}</div>
             <div>Grams</div>
           </div>
@@ -42,7 +42,7 @@ const WizardResults = ({ carbs, calories, fat, protein, error }) => {
               src="https://tinyurl.com/mvk9b79n"
               style={{ height: "90px", width: "90px" }}
             />
-            <div>Fat</div>
+            <div className={styles.box_macro}>Fat</div>
             <div className={styles.wresults_number}>{fat}</div>
             <div>Grams</div>
           </div>
@@ -54,7 +54,7 @@ const WizardResults = ({ carbs, calories, fat, protein, error }) => {
               src="https://tinyurl.com/ychy7t35"
               style={{ height: "90px", width: "90px" }}
             />
-            <div>Protein</div>
+            <div className={styles.box_macro}>Protein</div>
             <div className={styles.wresults_number}>{protein}</div>
             <div>Grams</div>
           </div>

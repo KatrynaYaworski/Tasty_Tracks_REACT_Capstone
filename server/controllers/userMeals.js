@@ -9,8 +9,7 @@ module.exports = {
           sequelize
             .query(mySequelQuery)
             .then((response) => {
-              console.log(response[0][0].selections);
-              res.status(200).send(response[0][0].selections);
+              res.status(200).send(response[0][0]?.selections || null);
             })
             .catch((e) => console.log("error with retrieving meals", e));
         },

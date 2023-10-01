@@ -1,6 +1,7 @@
 require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
+const path = require("path")
 const app = express();
 
 const { SERVER_PORT } = process.env;
@@ -15,6 +16,8 @@ const { getCurrentUserMeals, addUserMeals } = require("./controllers/userMeals")
 
 app.use(express.json());
 app.use(cors());
+
+app.use(express.static(path.join(__dirname, '../build')));
 
 app.post("/seed", seed);
 
@@ -34,5 +37,10 @@ app.post("/user-details", isAuthenticated, addUserDetails);
 app.post("/register", register);
 
 app.post("/login", login);
+
+// All other routes should serve the React app
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../build/index.html'));
+  });
 
 app.listen(SERVER_PORT, () => console.log(`up on ${SERVER_PORT}`));
